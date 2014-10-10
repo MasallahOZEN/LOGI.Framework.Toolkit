@@ -1,0 +1,5 @@
+Z:\Debug\ExchangeRates.FromDatabase.dll
+Z:\Debug\ExchangeRates.FromDatabase.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.FromDatabase\obj\BPC\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.FromDatabase\obj\BPC\Debug\ExchangeRates.FromDatabase.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.FromDatabase\obj\BPC\Debug\ExchangeRates.FromDatabase.pdb

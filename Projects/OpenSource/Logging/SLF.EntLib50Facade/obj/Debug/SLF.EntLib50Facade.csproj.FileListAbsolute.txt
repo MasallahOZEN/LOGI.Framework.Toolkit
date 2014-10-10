@@ -1,0 +1,14 @@
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\Slf.EntLib50Facade.dll
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\Slf.EntLib50Facade.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF.EntLib50Facade\obj\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF.EntLib50Facade\obj\Debug\Slf.EntLib50Facade.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF.EntLib50Facade\obj\Debug\Slf.EntLib50Facade.pdb
+Z:\Debug\Slf.EntLib50Facade.dll
+Z:\Debug\Slf.EntLib50Facade.pdb
+Z:\Debug\Slf.EntLib50Facade.XML
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\OpenSource\Logging\SLF.EntLib50Facade\obj\Debug\SLF.EntLib50Facade.csprojResolveAssemblyReference.cache
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\OpenSource\Logging\SLF.EntLib50Facade\obj\Debug\Slf.EntLib50Facade.dll
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\OpenSource\Logging\SLF.EntLib50Facade\obj\Debug\Slf.EntLib50Facade.pdb
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\Slf.EntLib50Facade.XML
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\Slf.EntLib50Facade.dll
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\Slf.EntLib50Facade.pdb

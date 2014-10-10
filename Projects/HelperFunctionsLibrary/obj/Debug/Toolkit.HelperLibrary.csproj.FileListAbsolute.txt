@@ -1,0 +1,9 @@
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\Toolkit.HelperLibrary.dll
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\Toolkit.HelperLibrary.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\HelperFunctionsLibrary\obj\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\HelperFunctionsLibrary\obj\Debug\Toolkit.HelperLibrary.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\HelperFunctionsLibrary\obj\Debug\Toolkit.HelperLibrary.pdb
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\Toolkit.HelperLibrary.XML
+z:\Debug\Toolkit.HelperLibrary.dll
+z:\Debug\Toolkit.HelperLibrary.pdb
+z:\Debug\Toolkit.HelperLibrary.XML

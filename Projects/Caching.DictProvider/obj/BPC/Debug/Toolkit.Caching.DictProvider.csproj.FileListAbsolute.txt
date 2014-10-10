@@ -1,0 +1,5 @@
+Z:\Debug\Toolkit.Caching.DictProvider.dll
+Z:\Debug\Toolkit.Caching.DictProvider.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\Caching.DictProvider\obj\BPC\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\Caching.DictProvider\obj\BPC\Debug\Toolkit.Caching.DictProvider.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\Caching.DictProvider\obj\BPC\Debug\Toolkit.Caching.DictProvider.pdb

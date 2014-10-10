@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 8.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVelocityTemplateEngine", "NVelocityTemplateEngine.csproj", "{88DE4E00-FE72-4C1C-BCDE-FD7C8C062054}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVelocityTemplateEngineDemo", "http://localhost/NVelocityTemplateEngineDemo/NVelocityTemplateEngineDemo.csproj", "{6441A842-6D01-4206-9C38-16F6B247E73D}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		Debug = Debug
+		Release = Release
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{88DE4E00-FE72-4C1C-BCDE-FD7C8C062054}.Debug.ActiveCfg = Debug|.NET
+		{88DE4E00-FE72-4C1C-BCDE-FD7C8C062054}.Debug.Build.0 = Debug|.NET
+		{88DE4E00-FE72-4C1C-BCDE-FD7C8C062054}.Release.ActiveCfg = Release|.NET
+		{88DE4E00-FE72-4C1C-BCDE-FD7C8C062054}.Release.Build.0 = Release|.NET
+		{6441A842-6D01-4206-9C38-16F6B247E73D}.Debug.ActiveCfg = Debug|.NET
+		{6441A842-6D01-4206-9C38-16F6B247E73D}.Debug.Build.0 = Debug|.NET
+		{6441A842-6D01-4206-9C38-16F6B247E73D}.Release.ActiveCfg = Release|.NET
+		{6441A842-6D01-4206-9C38-16F6B247E73D}.Release.Build.0 = Release|.NET
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,7 @@
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\ExchangeRates.FromDatabase.dll
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\ExchangeRates.FromDatabase.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.FromDatabase\obj\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.FromDatabase\obj\Debug\ExchangeRates.FromDatabase.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.FromDatabase\obj\Debug\ExchangeRates.FromDatabase.pdb
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\ExchangeRates.FromDatabase.XML
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\ExchangeRates.FromDatabase\obj\Debug\ExchangeRates.FromDatabase.csprojResolveAssemblyReference.cache

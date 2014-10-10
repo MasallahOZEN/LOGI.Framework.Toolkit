@@ -1,0 +1,85 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean />
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Qualified:@System.DateTime.Now">
+      <Item value="ToShortDateString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NVelocityTemplateEngine.Interfaces.INVelocityEngine">
+      <Item value="Process" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NVelocityTemplateEngine.BaseClasses">
+      <Item value="NVelocityEngineBase" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.IDictionary">
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NVelocityTemplateEngine.NVelocityEngineFactory">
+      <Item value="CreateNVelocityAssemblyEngine" priority="0" />
+      <Item value="CreateNVelocityMemoryEngine" priority="0" />
+      <Item value="CreateNVelocityFileEngine" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NVelocityTemplateEngine">
+      <Item value="Engines" priority="0" />
+      <Item value="BaseClasses" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Reflection.Assembly">
+      <Item value="GetExecutingAssembly" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NVelocity.Exception.MethodInvocationException">
+      <Item value="Message" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NVelocity.Exception.ParseErrorException">
+      <Item value="Message" priority="2" />
+      <Item value="ToString" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Label">
+      <Item value="Text" priority="2" />
+      <Item value="Visible" priority="5" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NVelocityTemplateEngine.EngineType">
+      <Item value="Memory" priority="0" />
+      <Item value="File" priority="0" />
+      <Item value="Assembly" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:NVelocity.Exception.ResourceNotFoundException">
+      <Item value="Message" priority="2" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@NVelocityTemplateEngine.Engines">
+      <Item value="NVelocityMemoryEngine" priority="0" />
+      <Item value="NVelocityAssemblyEngine" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.TextBox">
+      <Item value="Text" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Console">
+      <Item value="WriteLine" priority="2" />
+      <Item value="ReadLine" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@">
+      <Item value="Process" priority="0" />
+      <Item value="Add" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.IO.TextWriter">
+      <Item value="Write" priority="3" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFilesTracker>
+    <RecentFilesTracker>
+      <TrackedFile location="c:\inetpub\wwwroot\NVelocityTemplateEngineDemo\default.aspx.cs" offset="3370" line="80" column="0" />
+      <TrackedFile location="c:\inetpub\wwwroot\NVelocityTemplateEngineDemo\default.aspx" offset="264" line="-1" column="-1" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\AssemblyInfo.cs" offset="655" line="25" column="0" />
+      <TrackedFile location="c:\inetpub\wwwroot\NVelocityTemplateEngineDemo\Templates\SimpleTemplate.vm" offset="89" line="0" column="0" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\NVelocityEngineFactory.cs" offset="987" line="9" column="0" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\Engines\NVelocityFileEngine.cs" offset="1627" line="18" column="0" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\BaseClasses\NVelocityEngineBase.cs" offset="656" line="1" column="0" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\Engines\NVelocityAssemblyEngine.cs" offset="1227" line="0" column="0" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\Interfaces\INVelocityEngine.cs" offset="369" line="0" column="0" />
+      <TrackedFile location="c:\inetpub\wwwroot\NVelocityTemplateEngineDemo\EmbeddedResources\SimpleTemplate.vm" offset="0" line="0" column="0" />
+      <TrackedFile location="C:\Documents and Settings\Simone\Documenti\Visual Studio Projects\NVelocityTemplateEngine\Engines\NVelocityMemoryEngine.cs" offset="1560" line="12" column="0" />
+    </RecentFilesTracker>
+  </RecentFilesTracker>
+</Configuration>

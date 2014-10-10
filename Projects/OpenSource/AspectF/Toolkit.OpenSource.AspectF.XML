@@ -1,0 +1,152 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Toolkit.OpenSource.AspectF</name>
+    </assembly>
+    <members>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectExtensions.CallWithTimeout(YKM.Toolkit.OpenSource.AspectF.AspectF,System.TimeSpan)">
+            <summary>
+            Bir methodun max çalışacağı süreyi belirtir.
+            </summary>
+            <param name="aspect"></param>
+            <param name="timeout"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectExtensions.HowLong(YKM.Toolkit.OpenSource.AspectF.AspectF,System.Action{System.TimeSpan},System.Action{System.TimeSpan,System.Exception},System.Action{System.Exception})">
+            <summary>
+            HowLong
+            </summary>
+            <param name="aspect"></param>
+            <param name="onSuccessHandler">Başarılı olduğunda çalıştırılacak iş bloğu</param>
+            <param name="onFailHandler">Başarısız olduğunda çalıştırılacak iş bloğu</param>
+            <param name="onErrorhandler">Başarılı olduğunda catch içerisinde yapılacak iş (rethrow gibi)</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectExtensions.Transaction(YKM.Toolkit.OpenSource.AspectF.AspectF,System.Boolean)">
+            <summary>
+            Transaction
+            (The "Distributed Transaction Coordinator" service must be started)
+            </summary>
+            <param name="aspect"></param>
+            <param name="complete"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectExtensions.Transaction(YKM.Toolkit.OpenSource.AspectF.AspectF,System.Transactions.TransactionScopeOption,System.Boolean)">
+            <summary>
+             Transaction
+             (The "Distributed Transaction Coordinator" service must be started)
+            </summary>
+            <param name="aspect"></param>
+            <param name="transactionScopeOption"></param>
+            <param name="complete"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectExtensions.Transaction(YKM.Toolkit.OpenSource.AspectF.AspectF,System.Transactions.TransactionScopeOption,System.Transactions.TransactionOptions,System.Boolean)">
+            <summary>
+             Transaction
+             (The "Distributed Transaction Coordinator" service must be started)
+            </summary>
+            <param name="aspect"></param>
+            <param name="transactionScopeOption"></param>
+            <param name="transactionOptions"></param>
+            <param name="complete"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectExtensions.Use``1(YKM.Toolkit.OpenSource.AspectF.AspectF,``0,System.Action{``0})">
+            <summary>
+            Returns the instance of old object with new operations applied on.
+            </summary>
+            <typeparam name="TReturnType">The type of the object new operations will be applied on.</typeparam>
+            <param name="aspect"></param>
+            <param name="item">The object need to be modified.</param>
+            <param name="action">The delegate which performs on the object supplied.</param>
+            <returns>Returns the old object with new operations applied on.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectF.Combine(System.Action{System.Action})">
+            <summary>
+             Create a composition of function e.g. f(g(x))
+             </summary><param name="newAspectDelegate">A delegate that offers an aspect's behavior. 
+             It's added into the aspect chain</param><returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectF.Do(System.Action)">
+            <summary>
+             Execute your real code applying the aspects over it
+             </summary><param name="work">The actual code that needs to be run</param>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.AspectF.Return``1(System.Func{``0})">
+            <summary>
+             Execute your real code applying aspects over it.
+             </summary><typeparam name="TReturnType"></typeparam><param name="work">The actual code that needs to be run</param><returns></returns>
+        </member>
+        <member name="P:YKM.Toolkit.OpenSource.AspectF.AspectF.Chain">
+            <summary>
+             Chain of aspects to invoke
+             </summary>
+        </member>
+        <member name="P:YKM.Toolkit.OpenSource.AspectF.AspectF.WorkDelegate">
+            <summary>
+             The acrual work delegate that is finally called
+             </summary>
+        </member>
+        <member name="T:YKM.Toolkit.OpenSource.AspectF.Let">
+            <summary>
+            AspectF
+            (C) Omar AL Zabir 2009 All rights reserved.
+            
+            AspectF lets you add strongly typed Aspects within you code, 
+            anywhere in the code, in a fluent way. In common AOP frameworks, 
+            you define aspects as individual classes and you leave indication 
+            in the code where the aspect needs to be injected. A weaver 
+            then weaves it into the code for you. You can also implement AOP
+            using Attributes and by inheriting your classes from MarshanByRef. 
+            But that's not an option for you always to do so. There's also 
+            another way of doing AOP using DynamicProxy.
+            
+            AspectF tries to avoid all these special tricks. It has no need 
+            for a weaver (or any post build tool). It also does not require
+            extending classes from MarshalByRef or using DynamicProxy.
+            
+            AspectF offers a plain vanilla way of putting aspects within 
+            your methods. You can wrap your code using Aspects 
+            by using standard wellknown C#/VB.NET code. 
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.Let.Combine(System.Action{System.Action})">
+            <summary>
+            Create a composition of function e.g. f(g(x))
+            </summary>
+            <param name="newAspectDelegate">A delegate that offers an aspect's behavior. 
+            It's added into the aspect chain</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.Let.Do(System.Action)">
+            <summary>
+            Execute your real code applying the aspects over it
+            </summary>
+            <param name="work">The actual code that needs to be run</param>
+        </member>
+        <member name="M:YKM.Toolkit.OpenSource.AspectF.Let.Return``1(System.Func{``0})">
+            <summary>
+            Execute your real code applying aspects over it.
+            </summary>
+            <typeparam name="TReturnType"></typeparam>
+            <param name="work">The actual code that needs to be run</param>
+            <returns></returns>
+        </member>
+        <member name="P:YKM.Toolkit.OpenSource.AspectF.Let.Logger">
+            <summary>
+            Gets and sets the <see cref="T:Slf.ILogger"/> instance and used when <see cref="T:Slf.ILogger"/> is not passed with <see cref="T:YKM.Toolkit.OpenSource.AspectF.Let"/> class methods
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.OpenSource.AspectF.Let.Cache">
+            <summary>
+            Gets and sets the <see cref="T:YKM.Toolkit.Foundation.Caching.ICacheWrapper"/> instance and used when <see cref="T:YKM.Toolkit.Foundation.Caching.ICacheWrapper"/> is not passed with <see cref="T:YKM.Toolkit.OpenSource.AspectF.Let"/> class methods
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.OpenSource.AspectF.Let.Us">
+            <summary>
+            Handy property to start writing aspects using fluent style
+            </summary>
+        </member>
+    </members>
+</doc>

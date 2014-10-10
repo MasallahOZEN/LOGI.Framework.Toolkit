@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Toolkit.Core.Security</name>
+    </assembly>
+    <members>
+        <member name="T:YKM.Toolkit.Core.Security.SecurityExtentions">
+            <summary>
+             String Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.SecurityExtentions.ComputeMD5Hash(System.String)">
+            <summary>
+            Computes the MD5 hash for this string and returns it as an ASCII string.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.SecurityExtentions.ComputeMD5Hash(System.String,System.Text.Encoding)">
+            <summary>
+            Computes the MD5 hash for this string and returns it encoded with the specified text encoding.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.SecurityExtentions.ComputeSHA256Hash(System.String,System.Int32)">
+            <summary>
+            Computes the SHA256 hash for this string with the specified salt. Useful for comparing passwords with an accompanying salt.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.SecurityExtentions.ComputeSHA256Hash(System.String)">
+            <summary>
+            Computes the SHA256 hash for this string with a random salt. The salt used is returned in the result.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.SecurityExtentions.CreateRandomSalt(System.Int32)">
+            <summary>
+            Creates a random key salt of the specified length.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Security.HashResult">
+            <summary>
+            Stores the result of a string hash operation when a random salt is used
+            </summary>
+        </member>
+    </members>
+</doc>

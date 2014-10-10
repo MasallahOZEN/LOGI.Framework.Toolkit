@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BasketInsuranceItem xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <UniqueID>3aed1abc-8a50-4e5c-a4eb-31c017361ecd</UniqueID>
+  <Id>0</Id>
+  <Title>1</Title>
+  <Price>52.12</Price>
+  <Currency>TL</Currency>
+  <ComissionAmount>0</ComissionAmount>
+  <DiscountAmount>0</DiscountAmount>
+  <OriginalPrice>0</OriginalPrice>
+  <User>
+    <UserID>62027</UserID>
+    <UserIdentity>41835fa6-26c6-4cba-9f68-39c1aeb3e513</UserIdentity>
+    <CurrentAccountNumber>0000000000000000</CurrentAccountNumber>
+    <Email>muratgencer71@hotmail.com</Email>
+    <Password>HaEEJ0uybttEJP5ZtIrxqqtRAibz</Password>
+    <Name>Murat</Name>
+    <Surname>Gncer</Surname>
+    <SecretQuestion />
+    <SecretQuestionAnswer />
+    <InsertedDate>0001-01-01T00:00:00</InsertedDate>
+    <ActivationCodeSendDate>0001-01-01T00:00:00</ActivationCodeSendDate>
+    <ActivatedDate>0001-01-01T00:00:00</ActivatedDate>
+    <LastLoginDate>0001-01-01T00:00:00</LastLoginDate>
+    <LastLoginUserIP>85.104.174.151</LastLoginUserIP>
+    <LoginCount>0</LoginCount>
+    <Status>10</Status>
+    <UserProfile>
+      <UserProfileID>0</UserProfileID>
+      <User>
+        <UserID>62027</UserID>
+        <InsertedDate>0001-01-01T00:00:00</InsertedDate>
+        <ActivationCodeSendDate>0001-01-01T00:00:00</ActivationCodeSendDate>
+        <ActivatedDate>0001-01-01T00:00:00</ActivatedDate>
+        <LastLoginDate>0001-01-01T00:00:00</LastLoginDate>
+        <LoginCount>0</LoginCount>
+        <Status>0</Status>
+      </User>
+      <PassengerTypeID>0</PassengerTypeID>
+      <PrefixID>0</PrefixID>
+      <CountryID>0</CountryID>
+      <EducationID>0</EducationID>
+      <GenderID>0</GenderID>
+      <MaritialStatusID>0</MaritialStatusID>
+      <Birthdate>1971-04-24T00:00:00</Birthdate>
+      <IdentityNumber>16198606030</IdentityNumber>
+      <Status>0</Status>
+    </UserProfile>
+    <UserContactAddress>
+      <UserAddressID>91602</UserAddressID>
+      <User>
+        <UserID>62027</UserID>
+        <InsertedDate>0001-01-01T00:00:00</InsertedDate>
+        <ActivationCodeSendDate>0001-01-01T00:00:00</ActivationCodeSendDate>
+        <ActivatedDate>0001-01-01T00:00:00</ActivatedDate>
+        <LastLoginDate>0001-01-01T00:00:00</LastLoginDate>
+        <LoginCount>0</LoginCount>
+        <Status>0</Status>
+      </User>
+      <AddressTypeID>0</AddressTypeID>
+      <CompanyName />
+      <HomeTelephone />
+      <WorkTelephone />
+      <GSM>05324857728</GSM>
+      <Fax />
+      <TaxOffice />
+      <TaxNo />
+      <Address />
+      <CountryID>0</CountryID>
+      <City />
+      <PostCode />
+      <Status>0</Status>
+    </UserContactAddress>
+    <UserBillingAddress>
+      <UserAddressID>91603</UserAddressID>
+      <User>
+        <UserID>62027</UserID>
+        <InsertedDate>0001-01-01T00:00:00</InsertedDate>
+        <ActivationCodeSendDate>0001-01-01T00:00:00</ActivationCodeSendDate>
+        <ActivatedDate>0001-01-01T00:00:00</ActivatedDate>
+        <LastLoginDate>0001-01-01T00:00:00</LastLoginDate>
+        <LoginCount>0</LoginCount>
+        <Status>0</Status>
+      </User>
+      <AddressTypeID>1</AddressTypeID>
+      <CompanyName />
+      <HomeTelephone />
+      <WorkTelephone />
+      <GSM>05324857728</GSM>
+      <Fax />
+      <TaxOffice />
+      <TaxNo />
+      <Address />
+      <CountryID>0</CountryID>
+      <City />
+      <PostCode />
+      <Status>0</Status>
+    </UserBillingAddress>
+  </User>
+  <PlanID>0</PlanID>
+  <Policy>
+    <details>
+      <PolicyDetailBean>
+        <Age>40</Age>
+        <Master>1</Master>
+        <Phone>05324857728</Phone>
+        <Amount>26.06</Amount>
+        <CityName>Antalya</CityName>
+        <County>Muratpa�a</County>
+        <CityId>7</CityId>
+        <Address>�a�layan Mah 2013 Sok G�zde Apt.no 40 k 2 d 6</Address>
+        <BirthDate>24/4/1971</BirthDate>
+        <TcId>16198606030</TcId>
+        <PassportNo>01089223</PassportNo>
+        <Surname>Gencer</Surname>
+        <Name>Murat</Name>
+        <PolicyId>0</PolicyId>
+        <Id>0</Id>
+        <Gender>Bay</Gender>
+      </PolicyDetailBean>
+      <PolicyDetailBean>
+        <Age>33</Age>
+        <Master>0</Master>
+        <Phone>05324857728</Phone>
+        <Amount>26.06</Amount>
+        <CityName>Antalya</CityName>
+        <County>Muratpa�a</County>
+        <CityId>7</CityId>
+        <Address>�a�layan Mah 2013 Sok G�zde Apt.no 40 k 2 d 6</Address>
+        <BirthDate>24/7/1978</BirthDate>
+        <TcId>67846290002</TcId>
+        <PassportNo>03310928</PassportNo>
+        <Surname>Gencer</Surname>
+        <Name>Anna</Name>
+        <PolicyId>0</PolicyId>
+        <Id>0</Id>
+        <Gender>Bay</Gender>
+      </PolicyDetailBean>
+    </details>
+    <Duration>14</Duration>
+    <AgencyId>1</AgencyId>
+    <PlanNo>55</PlanNo>
+    <PlanId>1</PlanId>
+    <Departure>219</Departure>
+    <Arrival>97</Arrival>
+    <CategoryName>Yurtd���</CategoryName>
+    <StartDate>16.11.2011</StartDate>
+    <EndDate>30.11.2011</EndDate>
+    <PassengerCount>2</PassengerCount>
+    <PolicyNo>3401410000286</PolicyNo>
+    <Id>0</Id>
+  </Policy>
+  <StartDate>16.11.2011</StartDate>
+  <EndDate>30.11.2011</EndDate>
+  <PassengerCount>2</PassengerCount>
+</BasketInsuranceItem>

@@ -1,0 +1,6 @@
+Z:\Debug\SendMessage.DatabaseEFProvider.dll.config
+Z:\Debug\SendMessage.DatabaseEFProvider.dll
+Z:\Debug\SendMessage.DatabaseEFProvider.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\SendMessage.DatabaseEFProvider\obj\BPC\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\SendMessage.DatabaseEFProvider\obj\BPC\Debug\SendMessage.DatabaseEFProvider.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\SendMessage.DatabaseEFProvider\obj\BPC\Debug\SendMessage.DatabaseEFProvider.pdb

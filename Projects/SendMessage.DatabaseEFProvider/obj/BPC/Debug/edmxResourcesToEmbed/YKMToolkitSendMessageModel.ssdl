@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="YKM.Toolkit.Core.SendMessage.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="YKMToolkitCoreSendMessageModelStoreContainer">
+    <EntitySet Name="EmailQueue" EntityType="YKM.Toolkit.Core.SendMessage.Model.Store.EmailQueue" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="EmailQueue">
+    <Key>
+      <PropertyRef Name="EmailID" />
+    </Key>
+    <Property Name="EmailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="QueueDate" Type="datetime" Nullable="false" />
+    <Property Name="SendDate" Type="datetime" />
+    <Property Name="EmailTo" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="EmailFrom" Type="nvarchar" Nullable="false" MaxLength="150" />
+    <Property Name="EmailSubject" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="EmailBody" Type="nvarchar" Nullable="false" MaxLength="3000" />
+    <Property Name="EmailCC" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmailBCC" Type="nvarchar" MaxLength="150" />
+    <Property Name="EmailPriority" Type="int" Nullable="false" />
+    <Property Name="EmailStatus" Type="int" />
+  </EntityType>
+  <Function Name="SendEmailQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+</Schema>

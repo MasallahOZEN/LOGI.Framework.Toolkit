@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="LOGI.Framework.Toolkit.Core.SendMessage.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="YKMToolkitCoreSendMessageModelStoreContainer">
+          <EntitySet Name="EmailQueue" EntityType="LOGI.Framework.Toolkit.Core.SendMessage.Model.Store.EmailQueue" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="EmailQueue">
+          <Key>
+            <PropertyRef Name="EmailID" />
+          </Key>
+          <Property Name="EmailID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="QueueDate" Type="datetime" Nullable="false" />
+          <Property Name="SendDate" Type="datetime" />
+          <Property Name="EmailTo" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="EmailFrom" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="EmailSubject" Type="nvarchar" Nullable="false" MaxLength="500" />
+          <Property Name="EmailBody" Type="nvarchar" Nullable="false" MaxLength="3000" />
+          <Property Name="EmailCC" Type="nvarchar" MaxLength="150" />
+          <Property Name="EmailBCC" Type="nvarchar" MaxLength="150" />
+          <Property Name="EmailPriority" Type="int" Nullable="false" />
+          <Property Name="EmailStatus" Type="int" />
+        </EntityType>
+        <Function Name="SendEmailQueue" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="LOGI.Framework.Toolkit.Core.SendMessage.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="YKMToolkitMessageQueueEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EmailQueue" EntityType="LOGI.Framework.Toolkit.Core.SendMessage.Model.EmailQueue" />
+        </EntityContainer>
+        <EntityType Name="EmailQueue">
+          <Key>
+            <PropertyRef Name="EmailID" />
+          </Key>
+          <Property Type="Int32" Name="EmailID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="QueueDate" Nullable="false" />
+          <Property Type="DateTime" Name="SendDate" />
+          <Property Type="String" Name="EmailTo" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailFrom" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailSubject" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailBody" Nullable="false" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailCC" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EmailBCC" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="EmailPriority" Nullable="false" />
+          <Property Type="Int32" Name="EmailStatus" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="YKMToolkitCoreSendMessageModelStoreContainer" CdmEntityContainer="YKMToolkitMessageQueueEntities">
+          <EntitySetMapping Name="EmailQueue">
+            <EntityTypeMapping TypeName="LOGI.Framework.Toolkit.Core.SendMessage.Model.EmailQueue">
+              <MappingFragment StoreEntitySet="EmailQueue">
+                <ScalarProperty Name="EmailStatus" ColumnName="EmailStatus" />
+                <ScalarProperty Name="EmailPriority" ColumnName="EmailPriority" />
+                <ScalarProperty Name="EmailBCC" ColumnName="EmailBCC" />
+                <ScalarProperty Name="EmailCC" ColumnName="EmailCC" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="QueueDate" ColumnName="QueueDate" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="YKMToolkitSendMessageModel">
+        <EntityTypeShape EntityType="LOGI.Framework.Toolkit.Core.SendMessage.Model.EmailQueue" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

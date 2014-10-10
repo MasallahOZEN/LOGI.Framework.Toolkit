@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="YKMToolkitCoreSendMessageModelStoreContainer" CdmEntityContainer="YKMToolkitSMSQueue">
+    <EntitySetMapping Name="SMSQueue">
+      <EntityTypeMapping TypeName="LOGI.Framework.Toolkit.Core.SendMessage.Model.SMSQueue">
+        <MappingFragment StoreEntitySet="SMSQueue">
+          <ScalarProperty Name="SMSId" ColumnName="SMSId" />
+          <ScalarProperty Name="QueueDate" ColumnName="QueueDate" />
+          <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+          <ScalarProperty Name="SMSTo" ColumnName="SMSTo" />
+          <ScalarProperty Name="SMSFrom" ColumnName="SMSFrom" />
+          <ScalarProperty Name="SMSSubject" ColumnName="SMSSubject" />
+          <ScalarProperty Name="SMSBody" ColumnName="SMSBody" />
+          <ScalarProperty Name="SMSStatus" ColumnName="SMSStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

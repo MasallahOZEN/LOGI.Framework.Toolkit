@@ -1,0 +1,6 @@
+Z:\Debug\Toolkit.Core.WebServices.dll
+Z:\Debug\Toolkit.Core.WebServices.pdb
+Z:\Debug\Toolkit.Core.WebServices.XML
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\Toolkit.Core.WebServices\obj\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\Toolkit.Core.WebServices\obj\Debug\Toolkit.Core.WebServices.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\Toolkit.Core.WebServices\obj\Debug\Toolkit.Core.WebServices.pdb

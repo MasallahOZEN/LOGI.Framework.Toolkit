@@ -1,0 +1,12 @@
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\ExchangeRates.IMKBProvider.dll
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\ExchangeRates.IMKBProvider.pdb
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.IMKBProvider\obj\Debug\ResolveAssemblyReference.cache
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.IMKBProvider\obj\Debug\ExchangeRates.IMKBProvider.dll
+F:\Root\Masallah\Projects\TravelPortal\Toolkit\ExchangeRates.IMKBProvider\obj\Debug\ExchangeRates.IMKBProvider.pdb
+F:\Root\Masallah\Projects\TravelPortal\Output\Debug\ExchangeRates.IMKBProvider.XML
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\ExchangeRates.IMKBProvider\obj\Debug\ExchangeRates.IMKBProvider.csprojResolveAssemblyReference.cache
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.ExchangeRates.IMKBProvider.XML
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.ExchangeRates.IMKBProvider.dll
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.ExchangeRates.IMKBProvider.pdb
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\ExchangeRates.IMKBProvider\obj\Debug\LOGI.Framework.Toolkit.ExchangeRates.IMKBProvider.dll
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\ExchangeRates.IMKBProvider\obj\Debug\LOGI.Framework.Toolkit.ExchangeRates.IMKBProvider.pdb

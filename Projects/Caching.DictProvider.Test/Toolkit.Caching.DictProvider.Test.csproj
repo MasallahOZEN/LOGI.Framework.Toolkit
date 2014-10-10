@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A3229913-D5C1-4976-8CB7-5E470A1D0CD8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>YKM.Caching.DictProvider.Test</RootNamespace>
+    <AssemblyName>Toolkit.Caching.DictProvider.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\TestOutput\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\Dependencies\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\Dependencies\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationServer.Caching.Client, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ApplicationServer.Caching.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Moq">
+      <HintPath>..\Dependencies\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="xunit">
+      <HintPath>..\Dependencies\xunit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CachingDictProviderMoq.cs" />
+    <Compile Include="CachingVelocityProviderMoq.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Caching.DictProvider\Toolkit.Caching.DictProvider.csproj">
+      <Project>{91C41899-BD1D-4D11-AFCD-7E24403905B4}</Project>
+      <Name>Toolkit.Caching.DictProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit.Core\LOGI.Framework.Toolkit.csproj">
+      <Project>{132A0D3B-951D-4FC2-AE76-B5813473F72C}</Project>
+      <Name>LOGI.Framework.Toolkit</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit.Foundation\LOGI.Framework.Toolkit.Foundation.csproj">
+      <Project>{428A9CB1-0EB4-4D16-AC94-9C3C23043701}</Project>
+      <Name>LOGI.Framework.Toolkit.Foundation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit.Caching.VelocityProvider\Toolkit.Caching.VelocityProvider.csproj">
+      <Project>{D181E009-1124-4A40-9865-C62385D196A2}</Project>
+      <Name>Toolkit.Caching.VelocityProvider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Toolkit.Core.Client\Toolkit.Core.Client.csproj">
+      <Project>{1936D849-C2D8-4DC4-B723-E907EDC31F68}</Project>
+      <Name>Toolkit.Core.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UnityBootStrapper\Toolkit.BootStrapper.UnityProvider.csproj">
+      <Project>{0014E88C-5B96-4AED-A99E-1946601CE312}</Project>
+      <Name>Toolkit.BootStrapper.UnityProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

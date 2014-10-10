@@ -1,0 +1,1819 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Toolkit.Core</name>
+    </assembly>
+    <members>
+        <member name="T:YKM.Toolkit.Core.Exceptions.Base.BaseArgumentException">
+            <summary>
+             Uçuş servisi item değer null olamaz
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.IndexOf(`0)">
+            <summary>
+            Determines the index of a specific item in the <see cref="T:System.Collections.Generic.IList`1"/>.
+            </summary>
+            <returns>
+            The index of <paramref name="item"/> if found in the list; otherwise, -1.
+            </returns>
+            <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Insert(System.Int32,`0)">
+            <summary>
+            Inserts an item to the <see cref="T:System.Collections.Generic.IList`1"/> at the specified index.
+            </summary>
+            <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param><param name="item">The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.RemoveAt(System.Int32)">
+            <summary>
+            Removes the <see cref="T:System.Collections.Generic.IList`1"/> item at the specified index.
+            </summary>
+            <param name="index">The zero-based index of the item to remove.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Add(`0)">
+            <summary>
+            Add a business object to the collection
+            </summary>
+            <param name="BusinessObject"></param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.AddRange(System.Collections.Generic.IList{`0})">
+            <summary>
+            Add a business object to the collection
+            </summary>
+            <param name="BusinessObjects"></param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Merge(`0,System.Func{`0,System.Boolean})">
+            <summary>
+            Remove first instance of a business object from the collection
+            </summary>
+            <param name="BusinessObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Remove(System.Func{`0,System.Boolean})">
+            <summary>
+            Remove first instance of a business object from the collection
+            </summary>
+            <param name="BusinessObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Contains(System.Func{`0,System.Boolean})">
+            <summary>
+            Returns true/false based on whether or not it finds the requested object in the collection.
+            </summary>
+            <param name="BusinessObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.CopyTo(`0[],System.Int32)">
+            <summary>
+            Copy objects from this collection into another array
+            Not implemented
+            </summary>
+            <param name="BusinessObjectArray"></param>
+            <param name="index"></param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.ToArray">
+            <summary>
+            Clear the collection of all it's elements
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Clear">
+            <summary>
+            Clear the collection of all it's elements
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.GetEnumerator">
+            <summary>
+            Returns custom generic enumerator for this BusinessObjectCollection
+            </summary>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.System#Collections#IEnumerable#GetEnumerator" -->
+        <member name="P:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Item(System.Int32)">
+            <summary>
+            Default accessor for the collection 
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.Count">
+            <summary>
+            Number of elements in the collection
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Collections.BusinessObjectCollection`1.IsReadOnly">
+            <summary>
+            Flag sets whether or not this collection is read-only
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Threading.TimedLock">
+            <summary>
+            A resource locking class which contains built in deadlock handling.
+            Use in preference to using the lock statemet ("lock( myObject)") as the
+            TimedLock object has built in deadlock handling.
+            </summary>
+            <example>Intented use:
+            // Place lock on resource
+            using( TimedLock.Lock( myObject ))
+            {
+            	// .. do stuff 
+            } 
+            </example>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Threading.TimedLock._lockObject">
+            <summary>
+            The object being locked.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.#ctor(System.Object)">
+            <summary>
+            Private constructor to create a new TimeLock.
+            </summary>
+            <param name="lockObject">The object to lock.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.Lock(System.Object)">
+            <summary>
+            Applies a lock to the specified resource (using the default timeout <c>DefaultTimeOut</c>)..
+            </summary>
+            <param name="lockObject">The resource to lock.</param>
+            <returns>Returns the lock.</returns>
+            <exception cref="!:TimedLockException">Thrown when the DefaultTimeOut is exceeded.</exception>
+            <example>Intented use:
+            // Place lock on resource
+            using( TimedLock.Lock ( myObject ))
+            {
+            	// .. do stuff 
+            } 
+            </example>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.Lock(System.Object,System.String)">
+            <summary>
+            Applies a lock to the specified resource (using the default timeout <c>DefaultTimeOut</c>)..
+            </summary>
+            <param name="lockObject">The resource to lock.</param>
+            <param name="timeoutErrorMessage">Information to add to the error message if the lock times out (nullable).</param>
+            <returns>Returns the lock (must be Disposed of).</returns>
+            <exception cref="!:TimedLockException">Thrown when the DefaultTimeOut is exceeded.</exception>
+            <example>Intented use:
+            // Place lock on resource
+            using( TimedLock.Lock ( myObject ))
+            {
+            	// .. do stuff 
+            } 
+            </example>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.Lock(System.Object,System.TimeSpan)">
+            <summary>
+            Applies a lock to the specified resource (using the specified timeout)..
+            </summary>
+            <param name="lockObject">The resource to lock.</param>
+            <param name="timeout">The deadlock timeout</param>
+            <returns>Returns the lock.</returns>
+            <exception cref="!:TimedLockException">Thrown when the <c>DefaultTimeOut</c> is exceeded.</exception>
+            <example>Intented use:
+            using( TimedLock.Lock ( myObject ))
+            {
+            	// .. do stuff 
+            } 
+            </example>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.Lock(System.Object,System.TimeSpan,System.String)">
+            <summary>
+            Applies a lock to the specified resource (using the specified timeout)..
+            </summary>
+            <param name="lockObject">The resource to lock.</param>
+            <param name="timeout">The deadlock timeout</param>
+            <param name="timeoutErrorMessage">Information to add to the error message if the lock times out (nullable).</param>
+            <returns>Returns the lock.</returns>
+            <exception cref="!:TimedLockException">Thrown when the <c>DefaultTimeOut</c> is exceeded.</exception>
+            <example>Intented use:
+            using( TimedLock.Lock ( myObject ))
+            {
+            	// .. do stuff 
+            } 
+            </example>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.Dispose">
+            <summary>
+            Disposes of the timed lock resource (MUST BE CALLED - USE USING STATEMENTS).
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Threading.TimedLock._undisposedLockDetector">
+            <summary>
+            Debug object to detect any undisposed locks.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.TimedLock.DefaultTimeOut">
+            <summary>
+            Gets or sets the default time to wait for the lock on the specified object.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Threading.TimedLock.UndisposedLockDetector">
+            Debug object to detect and warn developers of any undisposed locks.
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.UndisposedLockDetector.#ctor(System.Object)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="lockObject"></param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.TimedLock.UndisposedLockDetector.Finalize">
+            <summary>
+            Finalizer. This should not get called if the object has been correctly disposed of.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.SendMessage.Repository.ISendMessageRepository">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtEnumarable.Extensions">
+            <summary>
+             YKM.Toolkit.Core.Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.Extensions.WhereIn``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},``1[])">
+            <summary> 
+            Return the element that the specified property's value is contained in the specifiec values 
+            </summary> 
+            <typeparam name="TElement">The type of the element.</typeparam> 
+            <typeparam name="TValue">The type of the values.</typeparam> 
+            <param name="source">The source.</param> 
+            <param name="propertySelector">The property to be tested.</param> 
+            <param name="values">The accepted values of the property.</param> 
+            <returns>The accepted elements.</returns> 
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.Extensions.WhereIn``2(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,``1}},System.Collections.Generic.IEnumerable{``1})">
+            <summary> 
+            Return the element that the specified property's value is contained in the specifiec values 
+            </summary> 
+            <typeparam name="TElement">The type of the element.</typeparam> 
+            <typeparam name="TValue">The type of the values.</typeparam> 
+            <param name="source">The source.</param> 
+            <param name="propertySelector">The property to be tested.</param> 
+            <param name="values">The accepted values of the property.</param> 
+            <returns>The accepted elements.</returns> 
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions">
+            <summary>
+            The almost inevitable collection of extra helper methods on
+            <see cref="T:System.Collections.Generic.IEnumerable`1"/> to augment the rich set of what
+            Linq already gives us.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Execute the provided <paramref name="action"/> on every item in <paramref name="sequence"/>.
+            </summary>
+            <typeparam name="TItem">Type of the items stored in <paramref name="sequence"/></typeparam>
+            <param name="sequence">Sequence of items to process.</param>
+            <param name="action">Code to run over each item.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions.JoinStrings``1(System.Collections.Generic.IEnumerable{``0},System.String,System.Func{``0,System.String})">
+            <summary>
+            Create a single string from a sequenc of items, separated by the provided <paramref name="separator"/>,
+            and with the conversion to string done by the given <paramref name="converter"/>.
+            </summary>
+            <remarks>This method does basically the same thing as <see cref="M:System.String.Join(System.String,System.String[])"/>,
+            but will work on any sequence of items, not just arrays.</remarks>
+            <typeparam name="TItem">Type of items in the sequence.</typeparam>
+            <param name="sequence">Sequence of items to convert.</param>
+            <param name="separator">Separator to place between the items in the string.</param>
+            <param name="converter">The conversion function to change TItem -&gt; string.</param>
+            <returns>The resulting string.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions.JoinStrings``1(System.Collections.Generic.IEnumerable{``0},System.String)">
+            <summary>
+            Create a single string from a sequenc of items, separated by the provided <paramref name="separator"/>,
+            and with the conversion to string done by the item's <see cref="M:System.Object.ToString"/> method.
+            </summary>
+            <remarks>This method does basically the same thing as <see cref="M:System.String.Join(System.String,System.String[])"/>,
+            but will work on any sequence of items, not just arrays.</remarks>
+            <typeparam name="TItem">Type of items in the sequence.</typeparam>
+            <param name="sequence">Sequence of items to convert.</param>
+            <param name="separator">Separator to place between the items in the string.</param>
+            <returns>The resulting string.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions.IsEqualTo``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Checks whether a collection is the same as another collection
+            </summary>
+            <param name="value">The current instance object</param>
+            <param name="compareList">The collection to compare with</param>
+            <param name="comparer">The comparer object to use to compare each item in the collection.  If null uses EqualityComparer(T).Default</param>
+            <returns>True if the two collections contain all the same items in the same order</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions.IsEqualTo``1(System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Checks whether a collection is the same as another collection
+            </summary>
+            <param name="value">The current instance object</param>
+            <param name="compareList">The collection to compare with</param>
+            <returns>True if the two collections contain all the same items in the same order</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnumarable.EnumerableExtensions.IsEqualTo(System.Collections.IEnumerable,System.Collections.IEnumerable)">
+            <summary>
+            Checks whether a collection is the same as another collection
+            </summary>
+            <param name="value">The current instance object</param>
+            <param name="compareList">The collection to compare with</param>
+            <returns>True if the two collections contain all the same items in the same order</returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1">
+            <summary>
+            This class is used to compare any 
+            type(property) of a class for sorting.
+            This class automatically fetches the 
+            type of the property and compares.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.#ctor(System.String,YKM.Toolkit.Core.Common.Comparers.GenericComparer{`0}.SortOrder)">
+            <summary>
+            Creates a new instance of the GenericComparer class
+            </summary>
+            <param name="sortColumn">The property on which the collection should be sorted</param>
+            <param name="sortingOrder">The direction of the sort</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.Compare(`0,`0)">
+            <summary>
+            Compare interface implementation
+            </summary>
+            <param name="x">custom Object</param>
+            <param name="y">custom Object</param>
+            <returns>int</returns>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.SortColumn">
+            <summary>
+            Column Name(public property of the class) to be sorted.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.SortingOrder">
+            <summary>
+            Sorting order.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.SortOrder">
+            <summary>
+            The sort order direction for sorting the collection
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.SortOrder.Ascending">
+            <summary>
+            Ascending
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Common.Comparers.GenericComparer`1.SortOrder.Descending">
+            <summary>
+            Descending
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.SendMessage.Repository.ISendSmsRepository">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.InstanceCreator.CreateInstance``1(System.Object[])">
+            <summary>
+             T tipindeki objeden bir instance oluşturu
+            </summary>
+            <param name="param">contructor değerleri</param>
+            <typeparam name="T">Instance'ı oluşturulacak tip</typeparam>
+            <returns>Instance'ı oluşturulacak tip</returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Enums.StringValueAttribute">
+            <summary>
+            This attribute is used to represent a string value
+            for a value in an enum.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Enums.StringValueAttribute.#ctor(System.String)">
+            <summary>
+            Constructor used to init a StringValue Attribute
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Enums.StringValueAttribute.StringValue">
+            <summary>
+            Holds the stringvalue for a value in an enum.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtDateTime.Extentions">
+            <summary>
+             Object Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtDateTime.Extentions.CalculateAge(System.DateTime)">
+            <summary>
+            DateTime değerinden int olarak yaşı döndürür
+            </summary>
+            <param name="birthdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.LockTimeoutException.#ctor">
+            <summary>
+             Default Constructor
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.LockTimeoutException.#ctor(System.String)">
+            <summary>
+             String parametreli Constructor 
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.LockTimeoutException.#ctor(System.String,System.Exception)">
+            <summary>
+             String ve Exception parametreli Constructor 
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtString.Extentions">
+            <summary>
+             String Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToStringCurrencySeparatorFormat(System.String)">
+            <summary>
+             string to CurrencyDecimalSeparator 
+             </summary>
+            <param name="currencyValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.RemoveTurkishCharacters(System.String)">
+            <summary>
+            String içerisindeki Türkçe karakterler yerine İngilize karakterleri ekler
+            "ö:o", "ç:c", "ş:s", "ğ:g", "ü:u", "ı:i", "Ö:O", "Ç:C", "Ş:S", "İ:I", "Ğ:G", "Ü:U"
+            </summary>
+            <example>"ö:o", "ç:c", "ş:s", "ğ:g", "ü:u", "ı:i", "Ö:O", "Ç:C", "Ş:S", "İ:I", "Ğ:G", "Ü:U"</example>
+            <param name="sourceStr"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.FillFromLeft(System.String,System.Char,System.Int32)">
+            <summary>
+            String repeate
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="repeateThis"></param>
+            <param name="maxLength"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.FillFromRight(System.String,System.Char,System.Int32)">
+            <summary>
+            String repeate
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="repeateThis"></param>
+            <param name="maxLength"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.RemoveNonLettersAndNonDigitsFromString(System.String,System.Char[])">
+            <summary>
+            String içerisindeki sembol karakterleri siler
+            </summary>
+            <param name="sourceStr"></param>
+            <param name="excludeCharacters"></param>
+            <returns>string</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.FromStringValue``1(System.String)">
+            <summary>
+            StringValueAttribute değerinden Enum döndürür
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="sourceValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.IsUpperCase(System.String)">
+            <summary>
+            method to check and see if a string is all uppercase
+            </summary>
+            <param name="str">string to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.IsNumeric(System.String)">
+            <summary>
+            method to check and see if a string is all uppercase
+            </summary>
+            <param name="str">string to check</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Chop(System.String,System.Int32)">
+            <summary>
+            Strips the last specified chars from a string.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <param name="removeFromEnd">The remove from end.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Chop(System.String,System.String)">
+            <summary>
+            Strips the last specified chars from a string.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <param name="backDownTo">The back down to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.PluralToSingular(System.String)">
+            <summary>
+            Plurals to singular.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.SingularToPlural(System.String)">
+            <summary>
+            Singulars to plural.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Pluralize(System.Int32,System.String)">
+            <summary>
+            Make plural when count is not one
+            </summary>
+            <param name="number">The number of things</param>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Clip(System.String,System.Int32)">
+            <summary>
+            Removes the specified chars from the beginning of a string.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <param name="removeFromBeginning">The remove from beginning.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Clip(System.String,System.String)">
+            <summary>
+            Removes chars from the beginning of a string, up to the specified string
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <param name="removeUpTo">The remove up to.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Chop(System.String)">
+            <summary>
+            Strips the last char from a a string.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Clip(System.String)">
+            <summary>
+            Strips the last char from a a string.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.FastReplace(System.String,System.String,System.String)">
+            <summary>
+            Fasts the replace.
+            </summary>
+            <param name="original">The original.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="replacement">The replacement.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.FastReplace(System.String,System.String,System.String,System.StringComparison)">
+            <summary>
+            Fasts the replace.
+            </summary>
+            <param name="original">The original.</param>
+            <param name="pattern">The pattern.</param>
+            <param name="replacement">The replacement.</param>
+            <param name="comparisonType">Type of the comparison.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Crop(System.String,System.String,System.String)">
+            <summary>
+            Returns text that is located between the startText and endText tags.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <param name="startText">The text from which to start the crop</param>
+            <param name="endText">The endpoint of the crop</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Squeeze(System.String)">
+            <summary>
+            Removes excess white space in a string.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToAlphaNumericOnly(System.String)">
+            <summary>
+            Removes all non-alpha numeric characters in a string
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToWords(System.String)">
+            <summary>
+            Creates a string array based on the words in a sentence
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.StripHTML(System.String)">
+            <summary>
+            Strips all HTML tags from a string
+            </summary>
+            <param name="htmlString">The HTML string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.StripHTML(System.String,System.String)">
+            <summary>
+            Strips all HTML tags from a string and replaces the tags with the specified replacement
+            </summary>
+            <param name="htmlString">The HTML string.</param>
+            <param name="htmlPlaceHolder">The HTML place holder.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToDelimitedList(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Converts a generic List collection to a single comma-delimitted string.
+            </summary>
+            <param name="list">The list.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToDelimitedList(System.Collections.Generic.IEnumerable{System.String},System.String)">
+            <summary>
+            Converts a generic List collection to a single string using the specified delimitter.
+            </summary>
+            <param name="list">The list.</param>
+            <param name="delimiter">The delimiter.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.Strip(System.String,System.String)">
+            <summary>
+            Strips the specified input.
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <param name="stripValue">The strip value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.AsciiToUnicode(System.Int32)">
+            <summary>
+            Converts ASCII encoding to Unicode
+            </summary>
+            <param name="asciiCode">The ASCII code.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToFormattedString(System.String,System.Object[])">
+            <summary>
+            Formats the args using String.Format with the target string as a format string.
+            </summary>
+            <param name="fmt">The format string passed to String.Format</param>
+            <param name="args">The args passed to String.Format</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Extentions.ToEnum``1(System.String)">
+            <summary>
+            Strings to enum.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="Value">The value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.#cctor">
+            <summary>
+            Initializes the <see cref="T:YKM.Toolkit.Core.Extensions.ExtString.Inflector"/> class.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.AddIrregularRule(System.String,System.String)">
+            <summary>
+            Adds the irregular rule.
+            </summary>
+            <param name="singular">The singular.</param>
+            <param name="plural">The plural.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.AddUnknownCountRule(System.String)">
+            <summary>
+            Adds the unknown count rule.
+            </summary>
+            <param name="word">The word.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.AddPluralRule(System.String,System.String)">
+            <summary>
+            Adds the plural rule.
+            </summary>
+            <param name="rule">The rule.</param>
+            <param name="replacement">The replacement.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.AddSingularRule(System.String,System.String)">
+            <summary>
+            Adds the singular rule.
+            </summary>
+            <param name="rule">The rule.</param>
+            <param name="replacement">The replacement.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.MakePlural(System.String)">
+            <summary>
+            Makes the plural.
+            </summary>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.MakeSingular(System.String)">
+            <summary>
+            Makes the singular.
+            </summary>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ApplyRules(System.Collections.Generic.IList{YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule},System.String)">
+            <summary>
+            Applies the rules.
+            </summary>
+            <param name="rules">The rules.</param>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ToTitleCase(System.String)">
+            <summary>
+            Converts the string to title case.
+            </summary>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.Humanize(System.String)">
+            <summary>
+            Converts the string to human case.
+            </summary>
+            <param name="lowercaseAndUnderscoredWord">The lowercase and underscored word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ToProper(System.String)">
+            <summary>
+            Convert string to proper case
+            </summary>
+            <param name="sourceString">The source string.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ToPascalCase(System.String)">
+            <summary>
+            Converts the string to pascal case.
+            </summary>
+            <param name="lowercaseAndUnderscoredWord">The lowercase and underscored word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ToPascalCase(System.String,System.Boolean)">
+            <summary>
+            Converts text to pascal case...
+            </summary>
+            <param name="text">The text.</param>
+            <param name="removeUnderscores">if set to <c>true</c> [remove underscores].</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ToCamelCase(System.String)">
+            <summary>
+            Converts the string to camel case.
+            </summary>
+            <param name="lowercaseAndUnderscoredWord">The lowercase and underscored word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.AddUnderscores(System.String)">
+            <summary>
+            Adds the underscores.
+            </summary>
+            <param name="pascalCasedWord">The pascal cased word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.MakeInitialCaps(System.String)">
+            <summary>
+            Makes the initial caps.
+            </summary>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.MakeInitialLowerCase(System.String)">
+            <summary>
+            Makes the initial lower case.
+            </summary>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.AddOrdinalSuffix(System.String)">
+            <summary>
+            Adds the ordinal suffix.
+            </summary>
+            <param name="number">The number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.ConvertUnderscoresToDashes(System.String)">
+            <summary>
+            Converts the underscores to dashes.
+            </summary>
+            <param name="underscoredWord">The underscored word.</param>
+            <returns></returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule">
+            <summary>
+            Summary for the InflectorRule class
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule.regex">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule.replacement">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule"/> class.
+            </summary>
+            <param name="regexPattern">The regex pattern.</param>
+            <param name="replacementText">The replacement text.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtString.Inflector.InflectorRule.Apply(System.String)">
+            <summary>
+            Applies the specified word.
+            </summary>
+            <param name="word">The word.</param>
+            <returns></returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Components.WeakReference`1">
+            <summary> 
+            Represents a weak reference, which references an object while still allowing   
+            that object to be reclaimed by garbage collection.    
+            </summary>    
+            <typeparam name="T">The type of the object that is referenced.</typeparam>    
+        </member>
+        <member name="M:YKM.Toolkit.Core.Components.WeakReference`1.#ctor(`0)">
+            <summary>        
+            Initializes a new instance of the Minimal.WeakReference{T} class, referencing        
+            the specified object.        
+            </summary>        
+            <param name="target">The object to reference.</param>        
+        </member>
+        <member name="M:YKM.Toolkit.Core.Components.WeakReference`1.#ctor(`0,System.Boolean)">
+            <summary>        
+            Initializes a new instance of the WeakReference{T} class, referencing 
+            the specified object and using the specified resurrection tracking. 
+            </summary>        
+            <param name="target">An object to track.</param> 
+            <param name="trackResurrection">Indicates when to stop tracking the object. If true, the object is tracked 
+            after finalization; if false, the object is only tracked until finalization.</param> 
+        </member>
+        <member name="M:YKM.Toolkit.Core.Components.WeakReference`1.op_Implicit(`0)~YKM.Toolkit.Core.Components.WeakReference{`0}">
+            <summary> 
+            Casts an object of the type T to a weak reference 
+            of T. 
+            </summary> 
+        </member>
+        <member name="M:YKM.Toolkit.Core.Components.WeakReference`1.op_Implicit(YKM.Toolkit.Core.Components.WeakReference{`0})~`0">
+            <summary> 
+            Casts a weak reference to an object of the type the 
+            reference represents. 
+            </summary> 
+        </member>
+        <member name="P:YKM.Toolkit.Core.Components.WeakReference`1.Target">
+            <summary> 
+            Gets or sets the object (the target) referenced by the current WeakReference{T} 
+            object. 
+            </summary> 
+        </member>
+        <member name="T:YKM.Toolkit.Core.BootStrappers.CommonBootStrapper">
+            <summary>
+             CommonBootStrapper
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.BootStrappers.CommonBootStrapper.Locator">
+            <summary>
+             IServiceLocator
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Threading.Tasks.TaskManager">
+            <summary>
+            Represents task manager
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskManager.Initialize(System.String,System.String)">
+            <summary>
+            Initializes the task manager with the property values specified in the configuration file.
+            </summary>
+            <param name="configFile">Configuration file</param>
+            <param name="nodePath">Node path</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskManager.Initialize(System.Xml.XmlNode)">
+            <summary>
+            Initializes the task manager with the property values specified in the configuration file.
+            </summary>
+            <param name="node">Node</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskManager.Start">
+            <summary>
+            Starts the task manager
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskManager.Stop">
+            <summary>
+            Stops the task manager
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskManager.Instance">
+            <summary>
+            Gets the task mamanger instance
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskManager.TaskThreads">
+            <summary>
+            Gets a list of task threads of this task manager
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Reflection.Property">
+            <summary>
+             Property Reflection Methods
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Property.SetValue``2(``0,``1,System.String)">
+            <summary>
+            TObj tipindeki objenin, propName isimli propertisine TValue tipinde değer atar
+            </summary>
+            <typeparam name="TObj">Properti değeri değişecek sınıf objesi tipi</typeparam>
+            <typeparam name="TValue">Properti değeri değişecek propertinini alacağı değer tipi</typeparam>
+            <param name="soruceObj">Properti değeri değişecek sınıf objesi</param>
+            <param name="propName">Değeri değişecek properti adı</param>
+            <param name="propValue">Değeri değişecek, TValue tipinde properti değeri</param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:YKM.Toolkit.Core.Reflection.CallingMethod" -->
+        <member name="M:YKM.Toolkit.Core.Reflection.CallingMethod.#ctor">
+            <summary>
+            Gets the calling method.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.CallingMethod.#ctor(System.Type)">
+            <summary>
+            Gets the calling method, ignoring calls from the specified type.
+            </summary>
+            <param name="ignoreType">All calls made from this type will be ignored.
+            Use this when wrapping this class in another class. OK if null.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.CallingMethod.Initialize">
+            <summary>
+            Initializes the calling method information.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.CallingMethod.ToString">
+            <summary>
+            Gets the full method signature, file and line number.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.FileName">
+            <summary>
+            Gets the name of the file that contained the method.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.FilePath">
+            <summary>
+            Gets the path of the file that contained the method.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.IgnoreType">
+            <summary>
+            Gets the type that will be ignored.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.LineNumber">
+            <summary>
+            Gets the line number in the file that called the method.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.MethodNameFull">
+            <summary>
+            Gets the full name of this method, with namespace.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.Method">
+            <summary>
+            Gets the calling method.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.MethodName">
+            <summary>
+            Gets the name of this method.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.MethodSignatureFull">
+            <summary>
+            Gets the complete method signature
+            with return type, full method name, and arguments.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.MethodSignature">
+            <summary>
+            Gets the method name and arguments.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.Namespace">
+            <summary>
+            Gets the namespace containing the object containing this method.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.ReturnName">
+            <summary>
+            Gets the name of the return type.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.Text">
+            <summary>
+            Gets the full method signature, file and line number.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.TypeNameFull">
+            <summary>
+            Gets the full name of the type that contains this method,
+            including the namespace.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.TypeName">
+            <summary>
+            Gets the name of the type that contains this method,
+            not including the namespace.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.CallingMethod.Type">
+            <summary>
+            Gets the type that contains this method.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Reflection.Dynamic.SimpleHierarchyWrapper">
+            <summary>
+            A concrete hierarchy wrapper
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject">
+            <summary>
+            See http://amazedsaint.blogspot.com/2010/02/introducing-elasticobject-for-net-40.html for details
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.CreateOrGetAttribute(System.String,System.Object)">
+            <summary>
+            Add a member to this element, with the specified value
+            </summary>
+            <param name="memberName"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.TryInvokeMember(System.Dynamic.InvokeMemberBinder,System.Object[],System.Object@)">
+            <summary>
+            Interpret a method call
+            </summary>
+            <param name="binder"></param>
+            <param name="args"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.TryBinaryOperation(System.Dynamic.BinaryOperationBinder,System.Object,System.Object@)">
+            <summary>
+            Interpret the invocation of a binary operation
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.TryUnaryOperation(System.Dynamic.UnaryOperationBinder,System.Object@)">
+            <summary>
+            Try the unary operation.
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.TryGetIndex(System.Dynamic.GetIndexBinder,System.Object[],System.Object@)">
+            <summary>
+            Handle the indexer operations
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.TryGetMember(System.Dynamic.GetMemberBinder,System.Object@)">
+            <summary>
+            Catch a get member invocation
+            </summary>
+            <param name="binder"></param>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.TrySetMember(System.Dynamic.SetMemberBinder,System.Object)">
+            <summary>
+            Catch a set member invocation
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject.InternalFullName">
+            <summary>
+            Fully qualified name
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Configurations.TravelPortalConfig.Create(System.Object,System.Object,System.Xml.XmlNode)">
+            <summary>
+            Creates a configuration section handler.
+            </summary>
+            <param name="parent">Parent object.</param>
+            <param name="configContext">Configuration context object.</param>
+            <param name="section">Section XML node.</param>
+            <returns>The created section handler object.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Configurations.TravelPortalConfig.Init">
+            <summary>
+            Initializes the NopConfig object
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Configurations.TravelPortalConfig.ConnectionString">
+            <summary>
+            Gets or sets the connection string that is used to connect to the storage
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Configurations.TravelPortalConfig.CookieExpires">
+            <summary>
+            Gets or sets the expiration date and time for the Cookie in hours
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Common.Configurations.TravelPortalConfig.ScheduleTasks">
+            <summary>
+            Gets or sets a schedule tasks section
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.Literal(System.String)">
+            <summary>
+            A string that will be properly escaped so that reserved characters are treated as literals
+            </summary>
+            <param name="content"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.RegEx(System.String)">
+            <summary>
+            Any existing regular expression pattern.
+            </summary>
+            <param name="pattern"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.Group(YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern)">
+            <summary>
+            A subset of the pattern that can be referenced as ordinal captures
+            </summary>
+            <param name="innerExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.NamedGroup(System.String,YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern)">
+            <summary>
+            A subset of the pattern that can be referenced as a named capture
+            </summary>
+            <param name="groupName"></param>
+            <param name="innerExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.Phrase(YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern)">
+            <summary>
+            A non-capturing group
+            </summary>
+            <param name="innerExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.Set(YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern)">
+            <summary>
+            Matches any single character contained within
+            </summary>
+            <param name="innerExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.NegatedSet(YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern)">
+            <summary>
+            Matches any single character not contained within
+            </summary>
+            <param name="innerExpression"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.With">
+            <summary>
+            Indicates creation of a new pattern
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.Repeat">
+            <summary>
+            Quantifies how many times to detect the previous element
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.AtBeginning">
+            <summary>
+            Specifies that the match must occur at the beginning of the string or the beginning of the line
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.RegexOptions.ReadableRex.Pattern.AtEnd">
+            <summary>
+            Specifies that the match must occur at the end of the string, before \n at the end of the string, or at the end of the line.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtDictionary.Extensions">
+            <summary>
+             ExtDictionary
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtDictionary.Extensions.ValueOrSomethingElse``3(System.Collections.Generic.Dictionary{``0,``1},``0,System.Func{``1,``2},System.Func{``2})">
+            <summary>
+             ValueOrSomethingElse
+             XXX.ValueOrSomethingElse("Mark", d => d.ToString("MM/dd/yy"), () => "Unknown BirthDate"); 
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtDictionary.Extensions.GetSafeValue``2(System.Collections.Generic.Dictionary{``0,``1},``0)">
+            <summary>
+            Gets the safe value associated with the specified key.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key of the value to get.</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtDictionary.Extensions.GetSafeValue``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <summary>
+            Gets the safe value associated with the specified key.
+            </summary>
+            <typeparam name="TKey">The type of the key.</typeparam>
+            <typeparam name="TValue">The type of the value.</typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key of the value to get.</param>
+            <param name="defaultValue">The default value.</param>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Exceptions.Base.BaseNotNullException">
+            <summary>
+             Uçuş servisi request için null exception sınıfı
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Configurations.Base.ProtectionConfigurationProviders">
+            <summary>
+             ProtectionConfigurationProviders
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Configurations.Base.ProtectionConfigurationProviders.DataProtectionConfigurationProvider">
+            <summary>
+             Data Protection Configuration Provider
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.Configurations.Base.ProtectionConfigurationProviders.RsaProtectedConfigurationProvider">
+            <summary>
+             RSA Protected Configuration Provider
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Common.Collections.PagedList`1">
+            <summary>
+            Paged list
+            </summary>
+            <typeparam name="T">T</typeparam>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.PagedList`1.#ctor(System.Linq.IQueryable{`0},System.Int32,System.Int32)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="source">source</param>
+            <param name="pageIndex">Page index</param>
+            <param name="pageSize">Page size</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.PagedList`1.#ctor(System.Collections.Generic.IEnumerable{`0},System.Int32,System.Int32)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="source">source</param>
+            <param name="pageIndex">Page index</param>
+            <param name="pageSize">Page size</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Common.Collections.PagedList`1.#ctor(System.Collections.Generic.List{`0},System.Int32,System.Int32)">
+            <summary>
+            Ctor
+            </summary>
+            <param name="source">source</param>
+            <param name="pageIndex">Page index</param>
+            <param name="pageSize">Page size</param>
+        </member>
+        <member name="T:YKM.Toolkit.Core.BootStrappers.Default.UnityBootStrapper">
+            <summary>
+             Unity BootStrapper
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.BootStrappers.Default.UnityBootStrapper.#ctor">
+            <summary>
+             Default Constructor
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.BootStrappers.BootStrapperManager">
+            <summary>
+             BootStrapperManager
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.BootStrappers.BootStrapperManager.Initialize(YKM.Toolkit.Core.BootStrappers.CommonBootStrapper)">
+            <summary>
+             Initialize
+            </summary>
+            <param name="bootStrapper">CommonBootStrapper</param>
+        </member>
+        <member name="P:YKM.Toolkit.Core.BootStrappers.BootStrapperManager.BootStrapper">
+            <summary>
+             BootStrapper
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtEnum.Extensions">
+            <summary>
+             Enum Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnum.Extensions.GetEnumValue``1(System.Enum,System.String)">
+            <summary>
+             GetEnumValue
+            </summary>
+            <param name="source">Kaynak Enum type</param>
+            <param name="value">Enum değerini vericek değer</param>
+            <typeparam name="T">Generic Enum Tipi</typeparam>
+            <returns>Generic Enum Tipi</returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtEnum.Extensions.GetStringValue(System.Enum)">
+            <summary>
+            Will get the string value for a given enums value, this will
+            only work if you assign the StringValue attribute to
+            the items in your enum.
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtObject.Extentions">
+            <summary>
+             Object Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.To``1(System.Object,``0,System.Boolean,System.IFormatProvider)">
+            <summary>
+             Convert to T
+            </summary>
+            <param name="convertableSource">Çevrilecek obje</param>
+            <param name="defaultValue"></param>
+            <param name="returnDefaultValue"></param>
+            <param name="provider"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.In(System.Object,System.Collections.IEnumerable)">
+            <summary>
+            Determines whether this System.Object is contained in the specified IEnumerable
+            </summary>
+            <param name="o">The System.Object</param>
+            <param name="enumerable">The IEnumerable to check</param>
+            <returns>true if enumerable contains this System.Object, otherwise false.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.In``1(``0,System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Determines whether this T is contained in the specified 'IEnumerable of T'
+            </summary>
+            <typeparam name="T">This System.Object's type</typeparam>
+            <param name="t">This item</param>
+            <param name="enumerable">The 'IEnumerable of T' to check</param>
+            <returns>true if enumerable contains this item, otherwise false.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.In(System.Object,System.Object[])">
+            <summary>
+            Determines whether this System.Object is contained in the specified values
+            </summary>
+            <param name="o">The System.Object</param>
+            <param name="items">The values to compare</param>
+            <returns>true if values contains this System.Object, otherwise false.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.In``1(``0,``0[])">
+            <summary>
+            Determines whether this T is contained in the specified values
+            </summary>
+            <typeparam name="T">This System.Object's type</typeparam>
+            <param name="t">This item</param>
+            <param name="items">The values to compare</param>
+            <returns>true if values contains this item, otherwise false.</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.ContainsAny``1(``0,``0[])">
+            <summary>
+            Determines whether this collections contains any of the specified values
+            </summary>
+            <typeparam name="T">The type of the values to compare</typeparam>
+            <param name="t">This collection</param>
+            <param name="items">The values to compare</param>
+            <returns>true if the collection contains any of the specified values, otherwise false</returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.ToStringCultureSeparatorFormat(System.Object,System.String,System.Globalization.CultureInfo)">
+            <summary>
+             Döviz kurları arasında yapılacak dönüşümlerde string değerin kura dönüştürülebilmesi için o anki culture 'a göre decimal separator değiştirilir
+            </summary>
+            <param name="currencyValue"></param>
+            <param name="toStringFormat"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.ApplyDefaultValues(System.Object)">
+            <summary>
+            Implements precompiled setters with embedded constant values from DefaultValueAttributes
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtObject.Extentions.ResetDefaultValues(System.Object)">
+            <summary>
+            Implements cache of ResetValue delegates
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Common.Collections.LazyList`1">
+            <summary>
+            Implements a list that is not materialized until it is accessed
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Exceptions.ExcConvertionException">
+            <summary>
+             InvalidOperationException
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.ExcConvertionException.#ctor">
+            <summary>
+             Default Constructor
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.ExcConvertionException.#ctor(System.String)">
+            <summary>
+             String parametreli Constructor 
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.ExcConvertionException.#ctor(System.String,System.Exception)">
+            <summary>
+             String ve Exception parametreli Constructor 
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtXml.Extensions">
+            <summary>
+             Xml Extensions
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtXml.Extensions.GetNodeValue``1(System.Xml.XmlNode,System.String)">
+            <summary>
+             GetNodeValue
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+            <exception cref="T:System.Exception"></exception>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtXml.Extensions.GetNodeValue``1(System.Xml.XmlNode,System.String,``0)">
+            <summary>
+             GetNodeValue
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="defaultValue"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Extensions.ExtXml.Extensions.RemoveAllXmlNamespace(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Remove all the xml namespaces (xmlns) attributes in the xml string
+            </summary>
+            <param name="xmlData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.ExchangeRates.ExchangeRateCurrencyCodes">
+            <summary>
+            Döviz kuru sembolleri
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.BootStrappers.Default.UnityServiceLocator">
+            <summary>
+             UnityServiceLocator
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.BootStrappers.Default.UnityServiceLocator.#ctor(Microsoft.Practices.Unity.IUnityContainer)">
+            <summary>
+             Default Constructoe
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Sessions.SessionManager`1">
+            <summary>
+            Session data kaynağından veri çekmek için 
+            <example> 
+            <code> 
+            SessionManager&lt;string&gt;.Session.SetValue(SessionKeys.UserName, "XXXXX");
+            string s =  SessionManager&lt;string&gt;.Session.GetValue(SessionKeys.UserName);
+            </code> 
+            </example> 
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Properties.Resources.Extentions_To_ConvertableSource_must_be_not_null">
+            <summary>
+              Looks up a localized string similar to convertableSource must be not null !.
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Properties.Resources.XmlConfigHelperGecersizParametre">
+            <summary>
+              Looks up a localized string similar to Xml Config dosyasında geçersiz parametre adi. Parametre : {0}.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Configurations.Base.ConfigHelper">
+            <summary>
+             Configuration Helper
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Configurations.Base.ConfigHelper.GetValue``1(System.String)">
+            <summary>
+             Config dosyasından data oku
+            </summary>
+            <param name="parameterName"></param>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Validations.Validator">
+            <summary>
+             Validator
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Validations.Validator.IsNullOrEmpties(System.String[])">
+            <summary>
+            Check string argument arrays not null or empties
+            </summary>
+            <param name="sourceValues"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Reflection.SingletonBase`1.Instance">
+            <summary>
+            Gets the singleton instance.
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Common.Configurations.XmlConfig">
+            <summary>
+             XmlConfigHelper
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Reflection.Dynamic.DynamicExtensions">
+            <summary>
+            Extension methods for our ElasticObject. 
+            See http://amazedsaint.blogspot.com/2010/02/introducing-elasticobject-for-net-40.html for details
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.DynamicExtensions.ToElastic(System.Xml.Linq.XElement)">
+            <summary>
+            Converts an XElement to the expando
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.DynamicExtensions.ToXElement(YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject)">
+            <summary>
+            Converts an expando to XElement
+            </summary>
+            <param name="e"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.DynamicExtensions.ElasticFromXElement(System.Xml.Linq.XElement)">
+            <summary>
+            Build an expando from an XElement
+            </summary>
+            <param name="el"></param>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Reflection.Dynamic.DynamicExtensions.XElementFromElastic(YKM.Toolkit.Core.Reflection.Dynamic.ElasticObject)">
+            <summary>
+            Returns an XElement from an ElasticObject
+            </summary>
+            <param name="elastic"></param>
+            <returns></returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.SendMessage.Model.SMSQueue">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Exceptions.SessionException">
+            <summary>
+             InvalidOperationException
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.SessionException.#ctor">
+            <summary>
+             Default Constructor
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.SessionException.#ctor(System.String)">
+            <summary>
+             String parametreli Constructor 
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.SessionException.#ctor(System.String,System.Exception)">
+            <summary>
+             String ve Exception parametreli Constructor 
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Extensions.ExtException.Extentions">
+            <summary>
+             Object Extensions
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Exceptions.ExcNotImplementedException">
+            <summary>
+             NotImplementedException
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.ExcNotImplementedException.#ctor">
+            <summary>
+             Default Constructor
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.ExcNotImplementedException.#ctor(System.String)">
+            <summary>
+             String parametreli Constructor 
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Exceptions.ExcNotImplementedException.#ctor(System.String,System.Exception)">
+            <summary>
+             String ve Exception parametreli Constructor 
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Exceptions.Base.BaseNotFoundException">
+            <summary>
+             Uçuş servisi için base exception sınıfı
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Threading.Tasks.TaskThread">
+            <summary>
+            Represents task thread
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskThread.Dispose">
+            <summary>
+            Disposes the instance
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskThread.InitTimer">
+            <summary>
+            Inits a timer
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.TaskThread.AddTask(YKM.Toolkit.Core.Threading.Tasks.Task)">
+            <summary>
+            Adds a task to the thread
+            </summary>
+            <param name="task">The task to be added</param>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskThread.Seconds">
+            <summary>
+            Gets the interval in seconds at which to run the tasks
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskThread.Started">
+            <summary>
+            Get a datetime when thread has been started
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskThread.IsRunning">
+            <summary>
+            Get a value indicating whether thread is running
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskThread.Tasks">
+            <summary>
+            Get a list of tasks
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.TaskThread.Interval">
+            <summary>
+            Gets the interval at which to run the tasks
+            </summary>
+        </member>
+        <member name="T:YKM.Toolkit.Core.Threading.Tasks.Task">
+            <summary>
+            Task
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.Task.#ctor">
+            <summary>
+            Ctor for Task
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.Task.#ctor(System.Type,System.Xml.XmlNode)">
+            <summary>
+            Ctor for Task
+            </summary>
+            <param name="taskType">Task type</param>
+            <param name="configNode">Config XML node</param>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Threading.Tasks.Task.Execute">
+            <summary>
+            Executes the task
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.IsRunning">
+            <summary>
+            A value indicating whether a task is running
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.LastStarted">
+            <summary>
+            Datetime of the last start
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.LastEnd">
+            <summary>
+            Datetime of the last end
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.LastSuccess">
+            <summary>
+            Datetime of the last success
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.TaskType">
+            <summary>
+            A value indicating type of the task
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.StopOnError">
+            <summary>
+            A value indicating whether to stop task on error
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.Name">
+            <summary>
+            Get the task name
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Threading.Tasks.Task.Enabled">
+            <summary>
+            A value indicating whether the task is enabled
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.KeyFactory.GetUniqueKey">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Security.KeyFactory.GetUniqueKey(System.Int32,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="keySize"></param>
+            <param name="includeLetters"></param>
+            <param name="includeNumbers"></param>
+            <param name="includePunctuation"></param>
+            <returns></returns>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Security.KeyFactory.IncludeLetters">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Security.KeyFactory.IncludeNumbers">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Security.KeyFactory.IncludePunctuation">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:YKM.Toolkit.Core.Security.KeyFactory.KeySize">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:YKM.Toolkit.Core.Components.ObjectShredder`1.Shred(System.Collections.Generic.IEnumerable{`0},System.Data.DataTable,System.Nullable{System.Data.LoadOption})">
+            <summary>
+            Loads a DataTable from a sequence of objects.
+            </summary>
+            <param name="source">The sequence of objects to load into the DataTable.</param>
+            <param name="table">The input table. The schema of the table must match that 
+            the type T.  If the table is null, a new table is created with a schema 
+            created from the public properties and fields of the type T.</param>
+            <param name="options">Specifies how values from the source sequence will be applied to 
+            existing rows in the table.</param>
+            <returns>A DataTable created from the source sequence.</returns>
+        </member>
+        <member name="T:YKM.Toolkit.Core.ExchangeRates.ExchangeOperations">
+            <summary>
+            Döviz Kur tipleri
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.ExchangeRates.ExchangeOperations.ForexBuying">
+            <summary>
+            Döviz alış
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.ExchangeRates.ExchangeOperations.ForexSelling">
+            <summary>
+            Döviz satış
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.ExchangeRates.ExchangeOperations.BanknoteBuying">
+            <summary>
+            Efektif  alış
+            </summary>
+        </member>
+        <member name="F:YKM.Toolkit.Core.ExchangeRates.ExchangeOperations.BanknoteSelling">
+            <summary>
+            Efektif satış
+            </summary>
+        </member>
+    </members>
+</doc>

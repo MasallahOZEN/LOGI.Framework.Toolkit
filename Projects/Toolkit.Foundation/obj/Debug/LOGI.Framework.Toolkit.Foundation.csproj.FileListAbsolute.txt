@@ -1,0 +1,8 @@
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Output\Debug\LOGI.Framework.Toolkit.Foundation.xml
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Output\Debug\LOGI.Framework.Toolkit.Foundation.dll
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Output\Debug\LOGI.Framework.Toolkit.Foundation.pdb
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Foundation\obj\Debug\LOGI.Framework.Toolkit.Foundation.dll
+H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Foundation\obj\Debug\LOGI.Framework.Toolkit.Foundation.pdb
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Foundation.XML
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Foundation.dll
+H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Foundation.pdb

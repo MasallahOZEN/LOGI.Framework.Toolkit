@@ -1,0 +1,1230 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Slf.EntLib50Facade</name>
+    </assembly>
+    <members>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.ExecuteWriteLogStoredProcedure(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="eventId">The event id for this LogEntry.</param>
+            <param name="searchId">The searchId for this LogEntry.</param>
+            <param name="priority">The priority for this LogEntry.</param>
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerCampaign"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataCampaign.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWingsServices.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.ExecuteWriteLogStoredProcedure(System.String,System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWingsServices.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrderPaymentTransactions.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.ExecuteWriteLogStoredProcedure(System.Int32,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="eventId">The event id for this LogEntry.</param>
+            <param name="priority">The priority for this LogEntry.</param>
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="basketWebRefID"></param>
+            <param name="affiliateCode"></param>
+            <param name="userName"></param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrderPaymentTransactions.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataOrders.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.ExecuteWriteLogStoredProcedure(System.Int32,System.Boolean,System.String,System.String,System.String,System.Int32,System.Int32,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="eventId">The event id for this LogEntry.</param>
+            <param name="priority">The priority for this LogEntry.</param>
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="basketWebRefID"></param>
+            <param name="affiliateCode"></param>
+            <param name="userName"></param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerOrders.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataReservation.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.ExecuteWriteLogStoredProcedure(System.Int32,System.Boolean,System.String,System.String,System.String,System.Int32,System.Int32,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="eventId">The event id for this LogEntry.</param>
+            <param name="searchId">The searchId for this LogEntry.</param>
+            <param name="priority">The priority for this LogEntry.</param>
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerReservation.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataModules.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.ExecuteWriteLogStoredProcedure(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerModules.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.LogProperty">
+            <summary>
+            Defines property name constants used in application logging.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp">
+            <summary>
+            A <see cref="T:System.Diagnostics.TraceListener"/> that writes to a database, formatting the output with an <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.#ctor(Microsoft.Practices.EnterpriseLibrary.Data.Database,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter)">
+            <summary>
+            Initializes a new instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp"/>.
+            </summary>
+            <param name="database">The database for writing the log.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="formatter">The formatter.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.Write(System.String)">
+            <summary>
+            The Write method 
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.WriteLine(System.String)">
+            <summary>
+            The WriteLine method.
+            </summary>
+            <param name="message">The message to log</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.TraceData(System.Diagnostics.TraceEventCache,System.String,System.Diagnostics.TraceEventType,System.Int32,System.Object)">
+            <summary>
+            Delivers the trace data to the underlying database.
+            </summary>
+            <param name="eventCache">The context information provided by <see cref="N:System.Diagnostics"/>.</param>
+            <param name="source">The name of the trace source that delivered the trace data.</param>
+            <param name="eventType">The type of event.</param>
+            <param name="id">The id of the event.</param>
+            <param name="data">The data to trace.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.GetSupportedAttributes">
+            <summary>
+            Declare the supported attributes for <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp"/>
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.ValidateParameters(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Validates that enough information exists to attempt executing the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to validate.</param>
+            <returns>A Boolean indicating whether the parameters for the LogEntry configuration are valid.</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.ExecuteStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Executes the stored procedures
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.ExecuteWriteLogStoredProcedure(System.Int32,System.String,System.String,System.String,System.Int32,System.Int32,System.Diagnostics.TraceEventType,System.String,System.DateTime,System.String,System.String,System.String,System.String,System.String,System.String,System.String,Microsoft.Practices.EnterpriseLibrary.Data.Database)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="eventId">The event id for this LogEntry.</param>
+            <param name="searchId">The searchId for this LogEntry.</param>
+            <param name="priority">The priority for this LogEntry.</param>
+            <param name="severity">The severity for this LogEntry.</param>
+            <param name="title">The title for this LogEntry.</param>
+            <param name="timeStamp">The timestamp for this LogEntry.</param>
+            <param name="machineName">The machine name for this LogEntry.</param>
+            <param name="appDomainName">The appDomainName for this LogEntry.</param>
+            <param name="processId">The process id for this LogEntry.</param>
+            <param name="processName">The processName for this LogEntry.</param>
+            <param name="managedThreadName">The managedthreadName for this LogEntry.</param>
+            <param name="win32ThreadId">The win32threadID for this LogEntry.</param>
+            <param name="message">The message for this LogEntry.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.ExecuteWriteLogStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the WriteLog stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+            <returns>An integer for the LogEntry Id</returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp.ExecuteAddCategoryStoredProcedure(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry,System.Int32,Microsoft.Practices.EnterpriseLibrary.Data.Database,System.Data.Common.DbTransaction)">
+            <summary>
+            Executes the AddCategory stored procedure
+            </summary>
+            <param name="logEntry">The LogEntry to store in the database.</param>
+            <param name="logID">The unique identifer for the LogEntry as obtained from the WriteLog Stored procedure.</param>
+            <param name="db">An instance of the database class to use for storing the LogEntry</param>
+            <param name="transaction">The transaction that wraps around the execution calls for storing the LogEntry</param>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp">
+            <summary>
+            Configuration object for a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerWebApp"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.#ctor">
+            <summary>
+            Initializes a <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp"/>.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>        
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.#ctor(System.String,System.String,System.String,System.String,System.String,System.Diagnostics.TraceOptions,System.Diagnostics.SourceLevels)">
+            <summary>
+            Initializes a named instance of <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp"/> with 
+            name, stored procedure name, databse instance name, and formatter name.
+            </summary>
+            <param name="name">The name.</param>
+            <param name="writeLogStoredProcName">The stored procedure name for writing the log.</param>
+            <param name="addCategoryStoredProcName">The stored procedure name for adding a category for this log.</param>
+            <param name="databaseInstanceName">The database instance name.</param>
+            <param name="formatterName">The formatter name.</param>
+            <param name="traceOutputOptions">The trace options.</param>
+            <param name="filter">The filter to be applied</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.GetCreationExpression">
+            <summary>
+            Returns a lambda expression that represents the creation of the trace listener described by this
+            configuration object.
+            </summary>
+            <returns>A lambda expression to create a trace listener.</returns>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.DatabaseInstanceName">
+            <summary>
+            Gets and sets the database instance name.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.WriteLogStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for writing the log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.AddCategoryStoredProcName">
+            <summary>
+            Gets and sets the stored procedure name for adding a category for this log.
+            </summary>
+        </member>
+        <member name="P:Slf.EntLibFacade.Diagnostics.VerboseDatabaseTraceListenerDataWebApp.Formatter">
+            <summary>
+            Gets and sets the formatter name.
+            </summary>
+        </member>
+        <member name="T:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatter">
+            <summary>
+            A custom trace formatter that implements the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter"/>
+            interface to provide verbose logging.
+            </summary>
+            <remarks>
+            This class supports the following configurable attributes for controlling
+            the type of data that is collected when an event is logged:
+            <list type="bulleted">
+            <term>includeEnvironment</term>
+            <term>includeThread</term>
+            <term>includeAppDomain</term>
+            <term>includeProcess</term>
+            <term>includeType</term>
+            </list>
+            </remarks>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatter.#ctor(System.Collections.Specialized.NameValueCollection)">
+            <summary>
+            Creates a new <see cref="T:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatter"/> instance using the
+            supplied attribute collection.
+            </summary>
+            <param name="attributes"></param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatter.Format(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)">
+            <summary>
+            Formats the supplied <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry"/> object instance based on the 
+            configured attribute values.  This method implements the 
+            <see cref="M:Microsoft.Practices.EnterpriseLibrary.Logging.Formatters.ILogFormatter.Format(Microsoft.Practices.EnterpriseLibrary.Logging.LogEntry)"/> interface member.
+            </summary>
+            <param name="logEntry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatterData.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.TextFormatterData"/> class with default values.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatterData.#ctor(System.String)">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.TextFormatterData"/> class with a template.
+            </summary>
+            <param name="templateData">
+            Template containing tokens to replace.
+            </param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatterData.#ctor(System.String,System.String)">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.TextFormatterData"/> class with a name and template.
+            </summary>
+            <param name="name">
+            The name of the formatter.
+            </param>
+            <param name="templateData">
+            Template containing tokens to replace.
+            </param>
+        </member>
+        <member name="M:Slf.EntLibFacade.Diagnostics.VerboseTraceFormatterData.#ctor(System.String,System.Type,System.String)">
+            <summary>
+            Initialize a new instance of the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Configuration.TextFormatterData"/> class with a name and template.
+            </summary>
+            <param name="name">
+            The name of the formatter.
+            </param>
+            <param name="formatterType">
+            The type of the formatter.
+            </param>
+            <param name="templateData">
+            Template containing tokens to replace.
+            </param>
+        </member>
+        <member name="T:Slf.EntLibFacade.EnterpriseLibraryLogger">
+            <summary>
+            An implementation of the <see cref="T:Slf.ILogger"/>
+            interface which outputs logged data using
+            the <see cref="T:Microsoft.Practices.EnterpriseLibrary.Logging.Logger"/> of the MS Enterprise
+            Library.
+            </summary>
+        </member>
+        <member name="M:Slf.EntLibFacade.EnterpriseLibraryLogger.#ctor(System.String)">
+            <summary>
+            Creates a named logger.
+            </summary>
+            <param name="name">The logger name.</param>
+        </member>
+        <member name="M:Slf.EntLibFacade.EnterpriseLibraryLogger.Log(Slf.LogItem)">
+            <summary>
+            Writes a log entry to the Enterprise Library's
+            logging block. Output depends on the logging
+            block's configuration.
+            </summary>
+            <param name="item">A <see cref="T:Slf.LogItem"/> which encapsulates
+            information to be logged.</param>
+            <exception cref="T:System.ArgumentNullException">If <paramref name="item"/>
+            is a null reference.</exception>
+        </member>
+        <member name="M:Slf.EntLibFacade.EnterpriseLibraryLogger.ConvertLogItem(Slf.LogItem,System.String)">
+            <summary>
+            Creates a <c>LogEntry</c> instance which can be processed
+            by the Enterprise Library based on a <see cref="T:Slf.LogItem"/>.
+            </summary>
+            <param name="item">A <see cref="T:Slf.LogItem"/> which encapsulates information
+            to be logged.</param>
+            <returns>An Enterprise Library item which corresponds
+            to the submitted <c>LogItem</c>.</returns>
+        </member>
+        <member name="T:Slf.EntLibFacade.EnterpriseLoggerFactory">
+            <summary>
+            An implementation of the <see cref="T:Slf.ILoggerFactory"/>
+            interface which creates <see cref="T:Slf.ILogger"/> instances
+            that use the Microsoft Enterprise Library Logging
+            framework as the underlying logging mechanism.
+            </summary>
+            
+            <remarks>
+            <para>This facade logs messages via the
+            Microsoft Enterprise Library Logging (EntLib)
+            framework. log levels are mapped as follows:</para>
+            
+            <table>
+            <tr>
+              <th>SLF LogLevel</th>
+              <th>EntLib TraceEventType</th>
+            </tr>
+            <tr>
+              <td>Debug</td>
+              <td>Verbose</td>
+            </tr>
+            <tr>
+              <td>Info</td>
+              <td>Informational</td>
+            </tr>
+            <tr>
+              <td>Warn</td>
+              <td>Warning</td>
+            </tr>
+            <tr>
+              <td>Error</td>
+              <td>Error</td>
+            </tr>
+            <tr>
+              <td>Fatal</td>
+              <td>Critical</td>
+            </tr>
+            </table>
+            
+            <para>SLF logger names are mapped to EntLib categories, with category names
+            separated by commas. For example, a logger named
+            <code>"Integration, Service"</code>, will log to both the <code>Integration</code>
+            and <code>Service</code> EntLib categories.
+            </para>
+            </remarks>
+            
+        </member>
+    </members>
+</doc>

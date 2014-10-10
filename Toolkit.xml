@@ -1,0 +1,506 @@
+﻿<LOGI.Framework.Toolkit>
+
+  <!--
+  Açıklama:
+  Namespace:LOGI.Framework.Toolkit.Core
+  Prefix:
+  -->
+  <Core>
+
+    <!--
+    Açıklama:Cache
+    Namespace:LOGI.Framework.Toolkit.Core.Caching.Provider.{NAME}Provider
+    Prefix:Toolkit.Caching.{NAME}Provider
+    -->
+    <Caching.Provider>
+      <!--
+      Açıklama:Cache
+      Namespace:LOGI.Framework.Toolkit.Core.Caching.Provider.DictProvider
+      Prefix:Toolkit.Caching.DictProvider
+      -->
+      <Caching.DictProvider>
+
+      </Caching.DictProvider>
+
+    </Caching.Provider>
+
+    <!--
+    Açıklama:Uygulamada gönderilen sms-email datasının kaydedileceği katmanı belirler
+    Namespace:LOGI.Framework.Toolkit.Core.SendMessage.Email
+    Prefix:LOGI.Framework.Toolkit.SendMessage.Email.{NAME}Provider
+    -->
+    <SendMessage.Email.Provider>
+
+      <!--
+		      Açıklama:Provider'lar aracılığı ile datanın EF kullanılarak Database'e sunumunu yapan katman
+		      Namespace:LOGI.Framework.Toolkit.Core.SendMessage.Email.Provider.Database
+		      Proje Ad Prefixi: LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider
+		      -->
+      <DatabaseEF>
+
+      </DatabaseEF>
+      
+      <!--
+      Açıklama : Database üzerinden mail gönderilme işlemini yapan katman.
+      Namespace : LOGI.Framework.Toolkit.Core.SendMessage.Sms.Provider.Database
+      Proje Ad Prefixi : LOGI.Framework.Toolkit.SendMessage.Sms.DatabaseEFProvider
+      -->
+      <SendMessage.Sms.DatabaseEFProvider>
+      </SendMessage.Sms.DatabaseEFProvider>
+
+    </SendMessage.Email.Provider>
+
+    <!--
+    Açıklama:Para birimi işlemleri
+    Namespace:LOGI.Framework.Toolkit.Core.ExchangeRates
+    Prefix:LOGI.Framework.Toolkit.ExchangeRates.{0}Provider
+    -->
+    <ExchangeRates.Provider>
+
+      <!--
+      Açıklama:IMKB üzerinden para birimi işlemleri yapar
+      Namespace:LOGI.Framework.Toolkit.Core.ExchangeRates.Provider.IMKB
+      Prefix:LOGI.Framework.Toolkit.ExchangeRates.IMKBProvider
+      -->
+      <ExchangeRates.IMKBProvider>
+
+      </ExchangeRates.IMKBProvider>
+
+      <!--
+      Açıklama:Database üzerinden para birimi işlemleri yapar
+      Namespace:LOGI.Framework.Toolkit.Core.ExchangeRates.Provider.FromDatabase
+      Prefix:LOGI.Framework.Toolkit.ExchangeRates.FromDBrovider
+      -->
+      <ExchangeRates.FromDatabase>
+
+      </ExchangeRates.FromDatabase>
+
+    </ExchangeRates.Provider>
+
+    <!--
+    Açıklama:String parser
+    Namespace:LOGI.Framework.Toolkit.Core.TemplateEngines
+    Prefix:TemplateEngine.{NAME}
+    -->
+    <TemplateEngines>
+
+      <!--
+      Açıklama:NVelocity kullanılarak string parse etme
+      Namespace:LOGI.Framework.Toolkit.Core.TemplateEngines.NVelocity
+      Prefix:Toolkit.TemplateEngine.NVelocity
+      Dependencies:NVelocity
+      -->
+      <NVelocity>
+
+      </NVelocity>
+    </TemplateEngines>
+
+    <!--
+    Açıklama:Core bileşenler
+    Namespace:LOGI.Framework.Toolkit.Core
+    Prefix:Toolkit.Core
+    -->
+    <Toolkit.Core>
+
+      <!--
+      Açıklama: Defualt IOC Container
+      Namespace:LOGI.Framework.Toolkit.Core.BootStrappers
+      -->
+      <BootStrappers>
+
+        Default, UnityBootStrapper loadconfiguration ayarlar
+
+      </BootStrappers>
+
+      <!--
+      Açıklama: Convertion
+      Namespace:LOGI.Framework.Toolkit.Core.Convertion
+      -->
+      <Convertion>
+
+      </Convertion>
+
+      <!--
+      Açıklama: Genel tanımlamaları
+      Namespace:LOGI.Framework.Toolkit.Core.Common
+      -->
+      <Common>
+
+        <!--
+        Açıklama: Genel collection tanımlamaları
+        Namespace:LOGI.Framework.Toolkit.Core.Common.Collections
+        -->
+        <Collections>
+          ThreadSafeDictionary
+        </Collections>
+
+        <!--
+        Açıklama: Genel karşılaştırma tanımlamaları
+        Namespace:LOGI.Framework.Toolkit.Core.Common.Comparers
+        -->
+        <Comparers>
+
+          LambdaComparer
+
+        </Comparers>
+
+        <!--
+        Açıklama: Uygulamanın xml konfigürasyonu üzerinde etkili katman
+        Namespace:LOGI.Framework.Toolkit.Core.Common.Configurations
+        -->
+        <Configurations>
+
+          Xml Config kullanılıyor.
+
+        </Configurations>
+
+      </Common>
+
+      <!--
+      Açıklama: Custom Attribute tanımlamaları
+      Namespace:LOGI.Framework.Toolkit.Core.Components
+      -->
+      <Components>
+        Dynamic
+        ObjectShredder
+      </Components>
+
+      <!--
+      Açıklama: Custom Attribute tanımlamaları
+      Namespace:LOGI.Framework.Toolkit.Core.Enums
+      -->
+      <Enums>
+        StringValue
+      </Enums>
+
+      <!--
+      Açıklama: Enum attribute ve custom method tanımlamaları
+      Namespace:LOGI.Framework.Toolkit.Core.Extensions
+      Prefix:Ext{NAME}
+      -->
+      <Extensions>
+
+        <!--
+        Açıklama: Enumarable'la extra methodlar
+        Namespace:LOGI.Framework.Toolkit.Core.Extensions.ExtEnumarable
+        -->
+        <Enumarable>
+
+        </Enumarable>
+
+        <!--
+        Açıklama: Enum'a extra methodlar
+        Namespace:LOGI.Framework.Toolkit.Core.Extensions.ExtEnum
+        -->
+        <Enums>
+
+        </Enums>
+
+        <!--
+        Açıklama: String'e extra methodlar
+        Namespace:LOGI.Framework.Toolkit.Core.Extensions.ExtObject
+        -->
+        <Object>
+
+        </Object>
+
+        <!--
+        Açıklama: String'e extra methodlar
+        Namespace:LOGI.Framework.Toolkit.Core.Extensions.ExtString
+        -->
+        <String>
+
+        </String>
+
+        <!--
+        Açıklama: Xml'e extra methodlar
+        Namespace:LOGI.Framework.Toolkit.Core.Extensions.ExtXml
+        -->
+        <Xml>
+
+        </Xml>
+
+      </Extensions>
+
+      <!--
+      Açıklama: Reflection
+      Namespace:LOGI.Framework.Toolkit.Core.Reflection
+      -->
+      <Reflection>
+        Property
+      </Reflection>
+
+      <!--
+      Açıklama: Enum attribute ve custom method tanımlamaları
+      Namespace:LOGI.Framework.Toolkit.Core.Validations
+      -->
+      <Validator>
+
+      </Validator>
+
+    </Toolkit.Core>
+
+    <!--
+    Açıklama:Core Security bileşenler
+    Namespace:LOGI.Framework.Toolkit.Core.Security
+    Prefix:LOGI.Framework.Toolkit.Core.Security
+    -->
+    <Toolkit.Core.Security>
+
+    </Toolkit.Core.Security>
+
+    <!--
+    Açıklama:Core Modularity bileşenler, plugin yapıları için temeller
+    Namespace:LOGI.Framework.Toolkit.Core.Modularity
+    Prefix:Toolkit.Core.Modularity
+    -->
+    <Toolkit.Core.Modularity>
+
+    </Toolkit.Core.Modularity>
+
+    <!--
+    Açıklama:Core Modularity ProcessWorker bileşenler
+    Namespace:LOGI.Framework.Toolkit.Core.Modularity.ProcessWorker
+    Prefix:Toolkit.Core.Modularity
+    -->
+    <Toolkit.Core.Modularity.ProcessWorker>
+
+    </Toolkit.Core.Modularity.ProcessWorker>
+
+    <!--
+    Açıklama:Core WebServices bileşenler
+    Namespace:LOGI.Framework.Toolkit.Core.WebServices
+    Prefix:LOGI.Framework.Toolkit.Core.WebServices
+    -->
+    <Toolkit.Core.WebServices>
+
+    </Toolkit.Core.WebServices>
+
+    <!--
+    Açıklama:Core Trace bileşenler
+    Namespace:LOGI.Framework.Toolkit.Core.ActionTracer
+    Prefix:Toolkit.Core.ActionTracer
+    -->
+    <Toolkit.Core.ActionTracer>
+
+    </Toolkit.Core.ActionTracer>
+
+    <!--
+    Açıklama:ActionTracer Interface tanımlamalarının yapıldığı katman
+    Namespace:LOGI.Framework.Toolkit.Foundation.ActionTracer
+    Prefix:Toolkit.Foundation.ActionTracer
+    -->
+    <Toolkit.Foundation.ActionTracer>
+
+    </Toolkit.Foundation.ActionTracer>
+
+    <!--
+    Açıklama:Interface tanımlamalarının yapıldığı katman
+    Namespace:LOGI.Framework.Toolkit.Foundation
+    Prefix:LOGI.Framework.Toolkit.Foundation
+    -->
+    <Toolkit.Foundation>
+
+      <!--
+      Açıklama:Cache 
+      Namespace:LOGI.Framework.Toolkit.Foundation.Cache
+      -->
+      <Collections>
+        ICache
+      </Collections>
+
+      <!--
+      Açıklama:Collections 
+      Namespace:LOGI.Framework.Toolkit.Foundation.Collections
+      -->
+      <Collections>
+        IThreadSafeDictionary
+      </Collections>
+
+      <!--
+      Açıklama:Globalization 
+      Namespace:LOGI.Framework.Toolkit.Foundation.Globalization
+      -->
+      <Globalization>
+        IMultilingual
+      </Globalization>
+
+      <!--
+      Açıklama:Repository 
+      Namespace:LOGI.Framework.Toolkit.Foundation.Repository
+      -->
+      <Repository>
+        IRepository
+        IRepositoryBase
+      </Repository>
+
+      <!--
+      Açıklama:String parser
+      Namespace:LOGI.Framework.Toolkit.Foundation.TemplateEngines
+      -->
+      <TemplateEngines>
+
+        ITemplateEngine
+
+      </TemplateEngines>
+
+    </Toolkit.Foundation>
+
+    <!--
+    Açıklama:Client
+    Namespace:LOGI.Framework.Toolkit.Core.Client
+    Prefix:Toolkit.Core.Client
+    -->
+    <Toolkit.Core.Client>
+
+      <!--
+      Açıklama:Uygulama içerisinde static text değişkenlerin alındığı kısım      
+      -->
+      <Constants>
+        ConstantHelper.cs
+      </Constants>
+
+      <!--
+      Açıklama:static context item container
+      Namespace:LOGI.Framework.Toolkit.Core.Client
+      -->
+      <Proxies>
+        IProxies.cs
+        Proxies.cs
+      </Proxies>
+
+    </Toolkit.Core.Client>
+
+    <!--
+    Açıklama:Resource katmanı
+    Namespace:LOGI.Framework.Toolkit.Core.Resources.{NAME}
+    Project:LOGI.Framework.Toolkit.Core.Resources.{NAME}
+    -->
+    <Resources>
+
+      <!--
+      Açıklama:TravelPortal Core katmanlarda kullanılan string değerler
+      Namespace:LOGI.Framework.TravelPortal.UI.Resources.TravelPortalCoreResources
+      Project:Presentation.Resources.TravelPortalCoreResources
+      -->
+      <ToolkitCoreResources>
+
+      </ToolkitCoreResources>
+
+    </Resources>
+
+    <!--
+    Açıklama:Cache
+    Namespace:LOGI.Framework.Toolkit.Core.Configuration
+    Prefix:Configuration.ConfigurationProvider.{ProviderName}
+    -->
+    <Configuration.ConfigurationProvider>
+
+      <!--
+      Açıklama:DB Config
+      Namespace:LOGI.Framework.Toolkit.Core.Configuration.ConfigurationProvider.DB
+      Prefix:Configuration.ConfigurationProvider.DB
+      -->
+      <Configuration.ConfigurationProvider.DB>
+
+      </Configuration.ConfigurationProvider.DB>
+
+    </Configuration.ConfigurationProvider>
+  </Core>
+
+  <!--
+    Açıklama:Yardımcı methodlar
+    Namespace:LOGI.Framework.Toolkit.Toolkit.HelperLibrary
+    Prefix:LOGI.Framework.Toolkit.HelperLibrary
+    -->
+  <Toolkit.HelperLibrary>
+    <web>
+
+      <Controls>
+
+      </Controls>
+    </web>
+
+    <!--
+    Açıklama:Yardımcı methodlar
+    Namespace:LOGI.Framework.Toolkit.Toolkit.HelperLibrary
+    Prefix:Toolkit.HelperLibrary
+    -->
+    <Toolkit.HelperLibrary>
+
+    </Toolkit.HelperLibrary>
+  </Toolkit.HelperLibrary>
+
+  <!--
+  Açıklama:OpenSource yardımcı uygulamalar
+  Namespace:LOGI.Framework.Toolkit.OpenSource.{NAME}
+  Prefix:Toolkit.OpenSource.{NAME}
+  -->
+  <OpenSource>
+    <!--
+    Açıklama:AspectF
+    Namespace:LOGI.Framework.Toolkit.OpenSource.AspectF
+    Prefix:Toolkit.OpenSource.AspectF
+    -->
+    <AspectF>
+
+    </AspectF>
+
+    <!--
+    Açıklama:Logging
+    -->
+    <Logging>
+      <!--
+      Açıklama:SLF
+      Namespace:SLF
+      Prefix:SLF
+      -->
+      <SLF>
+
+      </SLF>
+
+      <!--
+      Açıklama:SLF.EntLib50Facade
+      Namespace:SLF.EntLib50Facade
+      Prefix:SLF.EntLib50Facade
+      -->
+      <SLF.EntLib50Facade>
+
+      </SLF.EntLib50Facade>
+
+      <!--
+      Açıklama:SLF.EntLib50Facade
+      Namespace:SLF.EntLib50Facade
+      Prefix:SLF.EntLib50Business
+      -->
+      <SLF.EntLib50Facade>
+
+      </SLF.EntLib50Facade>
+    </Logging>
+
+    <!--
+    Açıklama:AutoMapper
+    Namespace:AutoMapper
+    Prefix:AutoMapper
+    -->
+    <AutoMapper>
+
+    </AutoMapper>
+
+    <!--
+    Açıklama:Çeviri yardımcı uygulamalar
+    Namespace:LOGI.Framework.Toolkit.OpenSource.Translation.{NAME}
+    Prefix:Toolkit.OpenSource.Translation.{NAME}
+    -->
+    <Translation>
+      <!--
+      Açıklama:GoogleTranslateAPI
+      Namespace:LOGI.Framework.Toolkit.OpenSource.Translation.Google
+      Prefix:Toolkit.OpenSource.Translation.Google
+      -->
+      <GoogleTranslateAPI>
+
+      </GoogleTranslateAPI>
+    </Translation>
+  </OpenSource>
+</LOGI.Framework.Toolkit>
