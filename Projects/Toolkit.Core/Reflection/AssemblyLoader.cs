@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Linq;
@@ -39,6 +41,49 @@ namespace LOGI.Framework.Toolkit.Core.Reflection
             }
 
             return loadedAssemblies;
+        }
+
+        public static List<T> GetPlugins<T>(string folder)
+        {
+
+            string[] files = Directory.GetFiles(folder, "*.dll");
+
+            List<T> tList = new List<T>();
+            
+            foreach (string file in files)
+            {
+
+                try
+                {
+
+                    Assembly assembly = Assembly.LoadFile(file);
+
+                    foreach (Type type in assembly.GetTypes())
+                    {
+
+                        if (!type.IsClass || type.IsNotPublic) continue;
+
+                        Type[] interfaces = type.GetInterfaces();
+
+                        if (((IList)interfaces).Contains(typeof(T)))
+                        {
+                            object obj = Activator.CreateInstance(type);
+
+                            T t = (T)obj;
+
+                            tList.Add(t);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //LogError(ex);
+                }
+
+            }
+
+            return tList;
+
         }
     }
 }

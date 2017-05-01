@@ -75,7 +75,6 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
             }
 
             var newChild = new TreeContainer(key);
-            newChild.ParentNodeKey = this.Key;
 
             ChildNodes.Add(newChild);
 
@@ -83,6 +82,11 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         }
 
         #region Public Action
+        public TreeContainer SetParentNodeKey(string key)
+        {
+            this.ParentNodeKey = key;
+            return this;
+        }
         public TreeContainer Insert(params TreeItemValue[] items)
         {
             if (items != null)

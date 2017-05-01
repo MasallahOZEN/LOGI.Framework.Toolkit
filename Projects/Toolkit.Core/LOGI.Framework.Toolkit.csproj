@@ -145,6 +145,7 @@
     <Compile Include="ExchangeRates\ExchangeRateItem.cs" />
     <Compile Include="Extensions\ExtDateTime\ExtensionDateTime.cs" />
     <Compile Include="Extensions\ExtDictionary\ExtensionDictionary.cs" />
+    <Compile Include="Extensions\ExtEnumarable\OrderByHelper.cs" />
     <Compile Include="Extensions\ExtException\ExtensionException.cs" />
     <Compile Include="Extensions\ExtObject\ExtensionObject.cs" />
     <Compile Include="Mapping\AutoMapper.cs" />
@@ -184,6 +185,7 @@
     <Compile Include="RegexOptions\ReadableRex\Quantifier.cs" />
     <Compile Include="RegexOptions\ReadableRex\Range.cs" />
     <Compile Include="Security\KeyFactory.cs" />
+    <Compile Include="Security\PasswordHash.cs" />
     <Compile Include="Security\SecurityOperations.cs" />
     <Compile Include="SendMessage\Model\SmsQueue.cs" />
     <Compile Include="SendMessage\Model\EmailQueue.cs" />

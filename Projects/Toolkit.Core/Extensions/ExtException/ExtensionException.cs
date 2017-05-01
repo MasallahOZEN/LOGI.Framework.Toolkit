@@ -20,10 +20,10 @@ namespace LOGI.Framework.Toolkit.Core.Extensions.ExtException
                 return string.Empty;
             }
 
-            var excMessage = ex.Message;
+            var excMessage = string.Format("Message:{0} \r\n StackTrace:{1} ", ex.Message,ex.StackTrace);
             if (ex.InnerException != null)
             {
-                return string.Format("{0} > {1} ", excMessage, GetInnerException(ex.InnerException));
+                excMessage+=GetInnerException(ex.InnerException);
             }
             return excMessage;
         }

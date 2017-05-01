@@ -15,14 +15,8 @@ namespace LOGI.Framework.Toolkit.Core.Security
             get { return SingletonBase<SecurityOperations>.Instance; }
         }
 
-        public string GenerateUniqueKey(int minSize,int maxSize)
+        public string GenerateUniqueKey(int maxSize)
         {
-
-            if (minSize>maxSize || minSize==maxSize)
-            {
-                throw new ArgumentException("MinSize, MaxSize dan küçük olmalı !");
-            }
-
             char[] chars = new char[62];
             string a;
             a ="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
