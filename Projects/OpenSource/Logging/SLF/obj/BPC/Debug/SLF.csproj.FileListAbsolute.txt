@@ -1,5 +1,0 @@
-Z:\Debug\SLF.dll
-Z:\Debug\SLF.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF\obj\BPC\Debug\SLF.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF\obj\BPC\Debug\SLF.pdb

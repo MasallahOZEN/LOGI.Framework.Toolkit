@@ -1,5 +1,0 @@
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Core.Test\obj\Debug\Core.Test.csprojResolveAssemblyReference.cache
-H:\Masallah\Projects\SeyahatPlatformu\TestOutput\Core.Test.dll
-H:\Masallah\Projects\SeyahatPlatformu\TestOutput\Core.Test.pdb
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Core.Test\obj\Debug\Core.Test.dll
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Core.Test\obj\Debug\Core.Test.pdb

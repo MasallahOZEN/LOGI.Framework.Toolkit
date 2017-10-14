@@ -1,7 +1,0 @@
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\SendMessage.DatabaseEFProvider\obj\Debug\SendMessage.Email.DatabaseEFProvider.csprojResolveAssemblyReference.cache
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider.dll.config
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider.xml
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider.dll
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider.pdb
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\SendMessage.DatabaseEFProvider\obj\Debug\LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider.dll
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\SendMessage.DatabaseEFProvider\obj\Debug\LOGI.Framework.Toolkit.SendMessage.Email.DatabaseEFProvider.pdb

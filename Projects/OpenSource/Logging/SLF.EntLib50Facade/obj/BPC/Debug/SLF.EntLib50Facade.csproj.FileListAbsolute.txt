@@ -1,5 +1,0 @@
-Z:\Debug\Slf.EntLib50Facade.dll
-Z:\Debug\Slf.EntLib50Facade.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF.EntLib50Facade\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF.EntLib50Facade\obj\BPC\Debug\Slf.EntLib50Facade.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\Logging\SLF.EntLib50Facade\obj\BPC\Debug\Slf.EntLib50Facade.pdb

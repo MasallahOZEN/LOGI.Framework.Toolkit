@@ -1,5 +1,0 @@
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\AspectF\obj\BPC\Debug\ResolveAssemblyReference.cache
-z:\debug\Toolkit.OpenSource.AspectF.dll
-z:\debug\Toolkit.OpenSource.AspectF.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\AspectF\obj\BPC\Debug\Toolkit.OpenSource.AspectF.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\OpenSource\AspectF\obj\BPC\Debug\Toolkit.OpenSource.AspectF.pdb

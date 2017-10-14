@@ -1,5 +1,0 @@
-Z:\Debug\Toolkit.TemplateEngine.NVelocity.dll
-Z:\Debug\Toolkit.TemplateEngine.NVelocity.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\NVelocityTemplateEngine\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\NVelocityTemplateEngine\obj\BPC\Debug\Toolkit.TemplateEngine.NVelocity.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\NVelocityTemplateEngine\obj\BPC\Debug\Toolkit.TemplateEngine.NVelocity.pdb

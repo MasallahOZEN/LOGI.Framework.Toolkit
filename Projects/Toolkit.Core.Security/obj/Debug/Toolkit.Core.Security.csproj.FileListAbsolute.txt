@@ -1,6 +1,0 @@
-Z:\Debug\Toolkit.Core.Security.dll
-Z:\Debug\Toolkit.Core.Security.pdb
-Z:\Debug\Toolkit.Core.Security.XML
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\Toolkit.Core.Security\obj\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\Toolkit.Core.Security\obj\Debug\Toolkit.Core.Security.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\Toolkit.Core.Security\obj\Debug\Toolkit.Core.Security.pdb

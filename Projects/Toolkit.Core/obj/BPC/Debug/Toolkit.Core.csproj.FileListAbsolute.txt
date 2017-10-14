@@ -1,8 +1,0 @@
-Z:\Debug\Toolkit.Core.dll
-Z:\Debug\Toolkit.Core.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\CoreLibrary\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\CoreLibrary\obj\BPC\Debug\YKM.Toolkit.Core.Properties.Resources.resources
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\CoreLibrary\obj\BPC\Debug\GenerateResource.read.1.tlog
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\CoreLibrary\obj\BPC\Debug\GenerateResource.write.1.tlog
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\CoreLibrary\obj\BPC\Debug\Toolkit.Core.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\CoreLibrary\obj\BPC\Debug\Toolkit.Core.pdb

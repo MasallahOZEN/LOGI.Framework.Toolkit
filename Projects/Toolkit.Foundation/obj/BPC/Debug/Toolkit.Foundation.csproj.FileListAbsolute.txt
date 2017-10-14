@@ -1,7 +1,0 @@
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\FoundationBase\bin\Debug\Toolkit.Foundation.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\FoundationBase\bin\Debug\Toolkit.Foundation.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\FoundationBase\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\FoundationBase\obj\BPC\Debug\Toolkit.Foundation.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\FoundationBase\obj\BPC\Debug\Toolkit.Foundation.pdb
-z:\debug\Toolkit.Foundation.dll
-z:\debug\Toolkit.Foundation.pdb

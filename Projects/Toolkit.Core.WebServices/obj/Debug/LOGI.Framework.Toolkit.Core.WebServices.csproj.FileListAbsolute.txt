@@ -1,6 +1,0 @@
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Core.WebServices.XML
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Core.WebServices.dll
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Core.WebServices.pdb
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core.WebServices\obj\Debug\LOGI.Framework.Toolkit.Core.WebServices.csprojResolveAssemblyReference.cache
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core.WebServices\obj\Debug\LOGI.Framework.Toolkit.Core.WebServices.dll
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core.WebServices\obj\Debug\LOGI.Framework.Toolkit.Core.WebServices.pdb

@@ -1,5 +1,0 @@
-Z:\Debug\Toolkit.HelperLibrary.dll
-Z:\Debug\Toolkit.HelperLibrary.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\HelperFunctionsLibrary\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\HelperFunctionsLibrary\obj\BPC\Debug\Toolkit.HelperLibrary.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\HelperFunctionsLibrary\obj\BPC\Debug\Toolkit.HelperLibrary.pdb

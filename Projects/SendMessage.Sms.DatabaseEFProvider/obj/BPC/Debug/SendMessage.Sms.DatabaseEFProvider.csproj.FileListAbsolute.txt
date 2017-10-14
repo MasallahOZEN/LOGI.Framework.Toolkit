@@ -1,6 +1,0 @@
-Z:\Debug\SendMessage.Sms.DatabaseEFProvider.dll.config
-Z:\Debug\SendMessage.Sms.DatabaseEFProvider.dll
-Z:\Debug\SendMessage.Sms.DatabaseEFProvider.pdb
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\SendMessage.Sms.DatabaseEFProvider\obj\BPC\Debug\ResolveAssemblyReference.cache
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\SendMessage.Sms.DatabaseEFProvider\obj\BPC\Debug\SendMessage.Sms.DatabaseEFProvider.dll
-F:\Root\Masallah\Projects\TravelPortal\Toolkit\SendMessage.Sms.DatabaseEFProvider\obj\BPC\Debug\SendMessage.Sms.DatabaseEFProvider.pdb

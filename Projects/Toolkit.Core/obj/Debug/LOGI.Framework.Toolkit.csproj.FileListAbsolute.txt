@@ -1,8 +1,0 @@
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core\obj\Debug\LOGI.Framework.Toolkit.csprojResolveAssemblyReference.cache
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core\obj\Debug\LOGI.Framework.Toolkit.csproj.GenerateResource.Cache
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core\obj\Debug\LOGI.Framework.Toolkit.Core.Properties.Resources.resources
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.XML
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.dll
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.pdb
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core\obj\Debug\LOGI.Framework.Toolkit.dll
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core\obj\Debug\LOGI.Framework.Toolkit.pdb

@@ -1,6 +1,0 @@
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Core.Security.XML
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Core.Security.dll
-H:\Masallah\Projects\SeyahatPlatformu\Output\Debug\LOGI.Framework.Toolkit.Core.Security.pdb
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core.Security\obj\Debug\LOGI.Framework.Toolkit.Core.Security.dll
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core.Security\obj\Debug\LOGI.Framework.Toolkit.Core.Security.pdb
-H:\Masallah\Projects\SeyahatPlatformu\LOGI.Framework.Toolkit\Projects\Toolkit.Core.Security\obj\Debug\LOGI.Framework.Toolkit.Security.csprojResolveAssemblyReference.cache
