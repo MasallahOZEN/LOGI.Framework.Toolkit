@@ -19,7 +19,7 @@ MetadataTools ef = new MetadataTools(this);
 MetadataLoader loader = new MetadataLoader(this);
 CodeRegion region = new CodeRegion(this);
 
-string inputFile = @"YKMToolkitSendMessageModel.edmx";
+string inputFile = @"LOGIToolkitSendMessageModel.edmx";
 EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
 string namespaceName = code.VsNamespaceSuggestion();
 

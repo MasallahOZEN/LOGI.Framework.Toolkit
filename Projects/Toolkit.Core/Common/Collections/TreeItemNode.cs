@@ -38,7 +38,14 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
             set
             {
                 _value = value;
-                ValueType = _value.GetType().AssemblyQualifiedName;
+                if (_value == null)
+                {
+                    ValueType = string.Empty;
+                }
+                else
+                {
+                    ValueType = _value.GetType().AssemblyQualifiedName;
+                }
             }
         }
 

@@ -26,7 +26,7 @@ namespace LOGI.Framework.Toolkit.Core.SendMessage.Email.Provider.Database
         #region Constructor
 
         public GenericRepository()
-            : this(new YKMToolkitMessageQueueEntities())
+            : this(new LOGIToolkitMessageQueueEntities())
         {
 
         }

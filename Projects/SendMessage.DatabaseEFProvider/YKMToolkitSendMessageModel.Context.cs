@@ -14,26 +14,26 @@ using LOGI.Framework.Toolkit.Core.SendMessage.Model;
 
 namespace LOGI.Framework.Toolkit.Core.SendMessage.Email.Provider.Database
 {
-    public partial class YKMToolkitMessageQueueEntities : ObjectContext
+    public partial class LOGIToolkitMessageQueueEntities : ObjectContext
     {
-        public const string ConnectionString = "name=YKMToolkitMessageQueueEntities";
-        public const string ContainerName = "YKMToolkitMessageQueueEntities";
+        public const string ConnectionString = "name=LOGIToolkitMessageQueueEntities";
+        public const string ContainerName = "LOGIToolkitSendMessageModel";
     
         #region Constructors
     
-        public YKMToolkitMessageQueueEntities()
+        public LOGIToolkitMessageQueueEntities()
             : base(ConnectionString, ContainerName)
         {
             this.ContextOptions.LazyLoadingEnabled = true;
         }
     
-        public YKMToolkitMessageQueueEntities(string connectionString)
+        public LOGIToolkitMessageQueueEntities(string connectionString)
             : base(connectionString, ContainerName)
         {
             this.ContextOptions.LazyLoadingEnabled = true;
         }
     
-        public YKMToolkitMessageQueueEntities(EntityConnection connection)
+        public LOGIToolkitMessageQueueEntities(EntityConnection connection)
             : base(connection, ContainerName)
         {
             this.ContextOptions.LazyLoadingEnabled = true;

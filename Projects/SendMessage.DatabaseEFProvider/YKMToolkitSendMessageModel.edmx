@@ -5,7 +5,7 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LOGI.Framework.Toolkit.Core.SendMessage.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
-        <EntityContainer Name="YKMToolkitCoreSendMessageModelStoreContainer">
+        <EntityContainer Name="LOGIToolkitCoreSendMessageModelStoreContainer">
           <EntitySet Name="EmailQueue" EntityType="LOGI.Framework.Toolkit.Core.SendMessage.Model.Store.EmailQueue" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="EmailQueue">
@@ -29,7 +29,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LOGI.Framework.Toolkit.Core.SendMessage.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
-        <EntityContainer Name="YKMToolkitMessageQueueEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LOGIToolkitMessageQueueEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="EmailQueue" EntityType="LOGI.Framework.Toolkit.Core.SendMessage.Model.EmailQueue" />
         </EntityContainer>
         <EntityType Name="EmailQueue">
@@ -53,7 +53,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="YKMToolkitCoreSendMessageModelStoreContainer" CdmEntityContainer="YKMToolkitMessageQueueEntities">
+        <EntityContainerMapping StorageEntityContainer="LOGIToolkitCoreSendMessageModelStoreContainer" CdmEntityContainer="LOGIToolkitMessageQueueEntities">
           <EntitySetMapping Name="EmailQueue">
             <EntityTypeMapping TypeName="LOGI.Framework.Toolkit.Core.SendMessage.Model.EmailQueue">
               <MappingFragment StoreEntitySet="EmailQueue">
@@ -92,7 +92,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="YKMToolkitSendMessageModel">
+      <Diagram Name="LOGIToolkitSendMessageModel">
         <EntityTypeShape EntityType="LOGI.Framework.Toolkit.Core.SendMessage.Model.EmailQueue" Width="1.5" PointX="0.75" PointY="0.75" Height="2.9417936197916656" />
       </Diagram>
     </Diagrams>

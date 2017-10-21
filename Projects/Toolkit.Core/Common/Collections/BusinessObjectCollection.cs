@@ -4,17 +4,19 @@ using System.Collections;
 using System.Threading;
 using LOGI.Framework.Toolkit.Core.Reflection;
 using LOGI.Framework.Toolkit.Core.Threading;
+using System.Runtime.Serialization;
 
 namespace LOGI.Framework.Toolkit.Core.Common.Collections
 {
     [Serializable]
+    [DataContract]
     public class BusinessObjectCollection<T> : IList<T>// where T : BusinessObjectBase
     {
-        //private static object _sharedLock = new object();
-        private object _sharedLock = new object();
         #region "Member Variables"
-
+        [DataMember]
         protected List<T> _innerArray;  //inner ArrayList object
+
+        [DataMember]
         protected bool _IsReadOnly;       //flag for setting collection to read-only mode (not used in this example)
 
         #endregion
@@ -42,11 +44,7 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <param name="item">The object to locate in the <see cref="T:System.Collections.Generic.IList`1"/>.</param>
         public int IndexOf(T item)
         {
-            lock (_sharedLock)
-            {
-                return _innerArray.IndexOf(item);    
-            }
-            
+            return _innerArray.IndexOf(item);
         }
 
         /// <summary>
@@ -55,13 +53,10 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <param name="index">The zero-based index at which <paramref name="item"/> should be inserted.</param><param name="item">The object to insert into the <see cref="T:System.Collections.Generic.IList`1"/>.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
         public void Insert(int index, T item)
         {
-            lock (_sharedLock)
+            _innerArray.Insert(index, item);
+            if (ItemArrayChanged != null)
             {
-                _innerArray.Insert(index, item);
-                if (ItemArrayChanged != null)
-                {
-                    ItemArrayChanged.Invoke();
-                }
+                ItemArrayChanged.Invoke();
             }
         }
 
@@ -71,11 +66,8 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <param name="index">The zero-based index of the item to remove.</param><exception cref="T:System.ArgumentOutOfRangeException"><paramref name="index"/> is not a valid index in the <see cref="T:System.Collections.Generic.IList`1"/>.</exception><exception cref="T:System.NotSupportedException">The <see cref="T:System.Collections.Generic.IList`1"/> is read-only.</exception>
         public void RemoveAt(int index)
         {
-            lock (_sharedLock)
-            {
-                var itemObj = _innerArray[index];
-                this.Remove((type) => type.Equals(itemObj));
-            }
+            var itemObj = _innerArray[index];
+            this.Remove((type) => type.Equals(itemObj));
         }
 
         /// <summary>
@@ -87,17 +79,11 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         {
             get
             {
-                lock (_sharedLock)
-                {
-                    return _innerArray[index];
-                }
+                return _innerArray[index];
             }
             set
             {
-                lock (_sharedLock)
-                {
-                    _innerArray[index] = value;
-                }
+                _innerArray[index] = value;
             }
         }
 
@@ -108,10 +94,7 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         {
             get
             {
-                lock (_sharedLock)
-                {
-                    return _innerArray.Count;
-                }
+                return _innerArray.Count;
             }
         }
 
@@ -136,29 +119,12 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <param name="BusinessObject"></param>
         public virtual void Add(T BusinessObject)
         {
-            lock (_sharedLock)
+            _innerArray.Add(BusinessObject);
+            if (ItemArrayChanged != null)
             {
-                _innerArray.Add(BusinessObject);
-                if (ItemArrayChanged != null)
-                {
-                    ItemArrayChanged.Invoke();
-                }
+                ItemArrayChanged.Invoke();
             }
 
-            //try
-            //{
-            //    Monitor.Enter(_sharedLock);
-            //    _innerArray.Add(BusinessObject);
-            //    if (ItemArrayChanged != null)
-            //    {
-            //        ItemArrayChanged.Invoke();
-            //    }
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(_sharedLock);
-            //}
-            
         }
 
         /// <summary>
@@ -167,68 +133,39 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <param name="BusinessObjects"></param>
         public virtual void AddRange(IList<T> BusinessObjects)
         {
-            lock (_sharedLock)
+            var result = false;
+            foreach (var businessObject in BusinessObjects)
             {
-                var result = false;
-                foreach (var businessObject in BusinessObjects)
-                {
-                    _innerArray.Add(businessObject);
-                    result = true;
-                }
+                _innerArray.Add(businessObject);
+                result = true;
+            }
 
-                if (result)
+            if (result)
+            {
+                if (ItemArrayChanged != null)
                 {
-                    if (ItemArrayChanged != null)
-                    {
-                        ItemArrayChanged.Invoke();
-                    }
+                    ItemArrayChanged.Invoke();
                 }
             }
         }
 
         public bool Contains(T item)
         {
-            lock (_sharedLock)
-            {
-                return _innerArray.Contains(item);
-            }
+            return _innerArray.Contains(item);
         }
 
         public bool Remove(T item)
         {
-            //try
-            //{
-            //    Monitor.Enter(_sharedLock);
-            //    var result = _innerArray.Remove(item);
+            var result = _innerArray.Remove(item);
 
-            //    if (result)
-            //    {
-            //        if (ItemArrayChanged != null)
-            //        {
-            //            ItemArrayChanged.Invoke();
-            //        }
-            //    }
-
-            //    return result;
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(_sharedLock);
-            //}
-
-            lock (_sharedLock)
+            if (result)
             {
-                var result = _innerArray.Remove(item);
-
-                if (result)
+                if (ItemArrayChanged != null)
                 {
-                    if (ItemArrayChanged != null)
-                    {
-                        ItemArrayChanged.Invoke();
-                    }
+                    ItemArrayChanged.Invoke();
                 }
-                return result;
             }
+            return result;
         }
 
         /// <summary>
@@ -238,78 +175,36 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <returns></returns>
         public virtual bool Merge(T item,Func<T, bool> predicate)
         {
-            //try
-            //{
-            //    Monitor.Enter(_sharedLock);
-                
-            //    bool result = false;
+            bool result = false;
 
-            //    //loop through the inner array's indices
-            //    for (int i = 0; i < _innerArray.Count; i++)
-            //    {
-            //        //store current index being checked
-            //        T obj = _innerArray[i];
-
-            //        //compare the BusinessObjectBase UniqueId property
-            //        if (predicate(obj))
-            //        {
-            //            //remove item from inner ArrayList at index i
-            //            _innerArray[i] = item;
-            //            result = true;
-            //            break;
-            //        }
-            //    }
-
-            //    if (!result)
-            //    {
-            //        _innerArray.Add(item);
-            //    }
-
-            //    if (ItemArrayChanged != null)
-            //    {
-            //        ItemArrayChanged.Invoke();
-            //    }
-
-            //    return result;
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(_sharedLock);
-            //}
-
-            lock (_sharedLock)
+            //loop through the inner array's indices
+            for (int i = 0; i < _innerArray.Count; i++)
             {
-                bool result = false;
+                //store current index being checked
+                T obj = _innerArray[i];
 
-                //loop through the inner array's indices
-                for (int i = 0; i < _innerArray.Count; i++)
+                //compare the BusinessObjectBase UniqueId property
+                if (predicate(obj))
                 {
-                    //store current index being checked
-                    T obj = _innerArray[i];
-
-                    //compare the BusinessObjectBase UniqueId property
-                    if (predicate(obj))
-                    {
-                        //remove item from inner ArrayList at index i
-                        _innerArray[i] = item;
-                        result = true;
-                        break;
-                    }
+                    //remove item from inner ArrayList at index i
+                    _innerArray[i] = item;
+                    result = true;
+                    break;
                 }
-
-                if (!result)
-                {
-                    _innerArray.Add(item);
-                }
-
-                if (ItemArrayChanged != null)
-                {
-                    ItemArrayChanged.Invoke();
-                }
-
-                return result;
             }
-            
+
+            if (!result)
+            {
+                _innerArray.Add(item);
+            }
+
+            if (ItemArrayChanged != null)
+            {
+                ItemArrayChanged.Invoke();
+            }
+
+            return result;
+
         }
 
         /// <summary>
@@ -319,76 +214,35 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <returns></returns>
         public virtual bool Remove(Func<T, bool> predicate)
         {
-            //try
-            //{
-            //    Monitor.Enter(_sharedLock);
+            bool result = false;
 
-            //    bool result = false;
-
-            //    //loop through the inner array's indices
-            //    for (int i = 0; i < _innerArray.Count; i++)
-            //    {
-            //        //store current index being checked
-            //        T obj = _innerArray[i];
-
-            //        //compare the BusinessObjectBase UniqueId property
-            //        if (predicate(obj))
-            //        {
-            //            //remove item from inner ArrayList at index i
-            //            _innerArray.RemoveAt(i);
-
-            //            result = true;
-            //            break;
-            //        }
-            //    }
-
-            //    if (result)
-            //    {
-            //        if (ItemArrayChanged != null)
-            //        {
-            //            ItemArrayChanged.Invoke();
-            //        }
-            //    }
-
-            //    return result;
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(_sharedLock);
-            //}
-
-            lock (_sharedLock)
+            //loop through the inner array's indices
+            for (int i = 0; i < _innerArray.Count; i++)
             {
-                bool result = false;
+                //store current index being checked
+                T obj = _innerArray[i];
 
-                //loop through the inner array's indices
-                for (int i = 0; i < _innerArray.Count; i++)
+                //compare the BusinessObjectBase UniqueId property
+                if (predicate(obj))
                 {
-                    //store current index being checked
-                    T obj = _innerArray[i];
+                    //remove item from inner ArrayList at index i
+                    _innerArray.RemoveAt(i);
 
-                    //compare the BusinessObjectBase UniqueId property
-                    if (predicate(obj))
-                    {
-                        //remove item from inner ArrayList at index i
-                        _innerArray.RemoveAt(i);
-
-                        result = true;
-                        break;
-                    }
+                    result = true;
+                    break;
                 }
-
-                if (result)
-                {
-                    if (ItemArrayChanged != null)
-                    {
-                        ItemArrayChanged.Invoke();
-                    }
-                }
-
-                return result;
             }
-            
+
+            if (result)
+            {
+                if (ItemArrayChanged != null)
+                {
+                    ItemArrayChanged.Invoke();
+                }
+            }
+
+            return result;
+
         }
 
         /// <summary>
@@ -398,46 +252,19 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <returns></returns>
         public bool Contains(Func<T,bool> predicate)
         {
-            //try
-            //{
-            //    Monitor.Enter(_sharedLock);
-
-            //    //loop through the inner ArrayList
-            //    foreach (T obj in _innerArray)
-            //    {
-            //        //compare the BusinessObjectBase UniqueId property
-            //        if (predicate(obj))
-            //        {
-            //            //if it matches return true
-            //            return true;
-            //        }
-            //    }
-
-            //    //no match
-            //    return false;
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(_sharedLock);
-            //}
-
-            lock (_sharedLock)
+            //loop through the inner ArrayList
+            foreach (T obj in _innerArray)
             {
-                //loop through the inner ArrayList
-                foreach (T obj in _innerArray)
+                //compare the BusinessObjectBase UniqueId property
+                if (predicate(obj))
                 {
-                    //compare the BusinessObjectBase UniqueId property
-                    if (predicate(obj))
-                    {
-                        //if it matches return true
-                        return true;
-                    }
+                    //if it matches return true
+                    return true;
                 }
-
-                //no match
-                return false;
             }
-            
+
+            //no match
+            return false;
         }
 
         /// <summary>
@@ -448,22 +275,7 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <param name="index"></param>
         public virtual void CopyTo(T[] BusinessObjectArray, int index)
         {
-            //try
-            //{
-            //    Monitor.Enter(_sharedLock);
-
-            //    _innerArray.CopyTo(BusinessObjectArray, index);
-            //}
-            //finally
-            //{
-            //    Monitor.Exit(_sharedLock);
-            //}
-
-            lock (_sharedLock)
-            {
-                _innerArray.CopyTo(BusinessObjectArray, index);
-            }
-            
+            _innerArray.CopyTo(BusinessObjectArray, index);
         }
 
         /// <summary>
@@ -471,11 +283,8 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// </summary>
         public virtual T[] ToArray()
         {
-            lock (_sharedLock)
-            {
-                var result = _innerArray.ToArray();
-                return result;
-            }
+            var result = _innerArray.ToArray();
+            return result;
         }
         
         /// <summary>
@@ -483,13 +292,10 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// </summary>
         public virtual void Clear()
         {
-            lock (_sharedLock)
+            _innerArray.Clear();
+            if (ItemArrayChanged != null)
             {
-                _innerArray.Clear();
-                if (ItemArrayChanged != null)
-                {
-                    ItemArrayChanged.Invoke();
-                }
+                ItemArrayChanged.Invoke();
             }
         }
 
@@ -500,10 +306,7 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         public virtual IEnumerator<T> GetEnumerator()
         {
             //return a custom enumerator object instantiated to use this BusinessObjectCollection 
-            lock (_sharedLock)
-            {
-                return new BusinessObjectEnumerator<T>(this);
-            }
+            return new BusinessObjectEnumerator<T>(this);
         }
 
         /// <summary>
@@ -512,10 +315,7 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
         /// <returns></returns>
         IEnumerator IEnumerable.GetEnumerator()
         {
-            lock (_sharedLock)
-            {
-                return new BusinessObjectEnumerator<T>(this);
-            }
+            return new BusinessObjectEnumerator<T>(this);
         }
 
         public event Action ItemArrayChanged;
@@ -523,21 +323,20 @@ namespace LOGI.Framework.Toolkit.Core.Common.Collections
 
         public T GetNewItem(params object[] parameters)
         {
-            lock (_sharedLock)
-            {
-                var returnVal = InstanceCreator.CreateInstance<T>(parameters);
-                return returnVal;
-            }
+            var returnVal = InstanceCreator.CreateInstance<T>(parameters);
+            return returnVal;
         }
 
         public IList<T> GetNewInstance(params object[] parameters)
         {
-            lock (_sharedLock)
-            {
-                Type type = this.GetType();
-                var returnVal = Activator.CreateInstance(type, parameters) as IList<T>;
-                return returnVal;
-            }
+            Type type = this.GetType();
+            var returnVal = Activator.CreateInstance(type, parameters) as IList<T>;
+            return returnVal;
+        }
+
+        public void SetReadOnly(bool isReadOnly)
+        {
+            _IsReadOnly = isReadOnly;
         }
         #endregion
     }
