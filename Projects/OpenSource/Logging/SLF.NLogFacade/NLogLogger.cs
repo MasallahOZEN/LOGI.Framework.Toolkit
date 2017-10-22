@@ -25,126 +25,112 @@ using System.Text;
 using Slf;
 using NLog;
 using Slf.Formatters;
+using NLog.Fluent;
 
 namespace SLF.NLogFacade
 {
-  /// <summary>
-  /// An implementation of the <see cref="ILogger"/>
-  /// interface which logs messages via the NLog
-  /// framework.
-  /// </summary>
-  public class NLogLogger : FormattableLoggerBase
-  {
     /// <summary>
-    /// The NLog logger which this class wraps.
+    /// An implementation of the <see cref="ILogger"/>
+    /// interface which logs messages via the NLog
+    /// framework.
     /// </summary>
-    private Logger logger;
-
-    /// <summary>
-    /// Constructs an instance of <see cref="NLogLogger"/>
-    /// by wrapping a NLog logger
-    /// </summary>
-    /// <param name="logger">The NLog logger to wrap</param>
-    internal NLogLogger(Logger logger) : base(SingleLineFormatter.Instance)
+    public class NLogLogger : FormattableLoggerBase
     {
-      this.logger = logger;
-    }
+        /// <summary>
+        /// The NLog logger which this class wraps.
+        /// </summary>
+        private Logger logger;
 
-    /// <summary>
-    /// Logs the given message. Output depends on the associated
-    /// log4net configuration.
-    /// </summary>
-    /// <param name="item">A <see cref="LogItem"/> which encapsulates
-    /// information to be logged.</param>
-    /// <exception cref="ArgumentNullException">If <paramref name="item"/>
-    /// is a null reference.</exception>
-    public override void Log(LogItem item)
-    {
-      if (item == null) throw new ArgumentNullException("item");
-
-      string message = FormatItem(item);
-
-      if (item.Exception != null)
-      {
-        switch (item.LogLevel)
+        /// <summary>
+        /// Constructs an instance of <see cref="NLogLogger"/>
+        /// by wrapping a NLog logger
+        /// </summary>
+        /// <param name="logger">The NLog logger to wrap</param>
+        internal NLogLogger(Logger logger) : base(SingleLineFormatter.Instance)
         {
-          case Slf.LogLevel.Fatal:
-            logger.FatalException(message, item.Exception);
-            break;
-
-          case Slf.LogLevel.Error:
-            logger.ErrorException(message, item.Exception);
-            break;
-
-          case Slf.LogLevel.Warn:
-            logger.WarnException(message, item.Exception);
-            break;
-
-          case Slf.LogLevel.Info:
-            logger.InfoException(message, item.Exception);
-            break;
-
-          case Slf.LogLevel.Debug:
-            logger.DebugException(message, item.Exception);
-            break;
-
-          default:
-            logger.InfoException(message, item.Exception);
-            break;
+            this.logger = logger;
         }
-      }
-      else
-      {
-        switch (item.LogLevel)
+
+        /// <summary>
+        /// Logs the given message. Output depends on the associated
+        /// log4net configuration.
+        /// </summary>
+        /// <param name="item">A <see cref="LogItem"/> which encapsulates
+        /// information to be logged.</param>
+        /// <exception cref="ArgumentNullException">If <paramref name="item"/>
+        /// is a null reference.</exception>
+        public override void Log(LogItem item)
         {
-          case Slf.LogLevel.Fatal:
-            logger.Fatal(message);
-            break;
+            if (item == null) throw new ArgumentNullException("item");
+            
+            string message = FormatItem(item);
+            LogBuilder logBuilder = null;
 
-          case Slf.LogLevel.Error:
-            logger.Error(message);
-            break;
+            #region Initialize Log Builder
+            switch (item.LogLevel)
+            {
+                case Slf.LogLevel.Fatal:
+                    logBuilder = logger.Fatal();
+                    break;
 
-          case Slf.LogLevel.Warn:
-            logger.Warn(message);
-            break;
+                case Slf.LogLevel.Error:
+                    logBuilder = logger.Error();
+                    break;
 
-          case Slf.LogLevel.Info:
-            logger.Info(message);
-            break;
+                case Slf.LogLevel.Warn:
+                    logBuilder = logger.Warn();
+                    break;
 
-          case Slf.LogLevel.Debug:
-            logger.Debug(message);
-            break;
+                case Slf.LogLevel.Info:
+                    logBuilder = logger.Info();
+                    break;
 
-          default:
-            logger.Info(message);
-            break;
+                case Slf.LogLevel.Debug:
+                    logBuilder = logger.Debug();
+                    break;
+
+                default:
+                    logBuilder = logger.Info();
+                    break;
+            } 
+            #endregion
+
+            if (item.Exception != null)
+            {
+                logBuilder = logBuilder.Exception(item.Exception);
+            }
+            if (item.ExtendedProperties?.Count>0)
+            {
+                foreach (var prpItem in item.ExtendedProperties)
+                {
+                    logBuilder.Property(prpItem.Key, prpItem.Value);
+                }
+            }
+
+            logBuilder.Message(message).Write();
         }
-      }
-    }
 
-    /// <summary>
-    /// Overriden to delegate to the NLog IsXxxEnabled
-    /// properties.
-    /// </summary>
-    protected override bool IsLogLevelEnabled(Slf.LogLevel level)
-    {
-      switch (level)
-      {
-        case Slf.LogLevel.Debug:
-          return logger.IsDebugEnabled;
-        case Slf.LogLevel.Error:
-          return logger.IsErrorEnabled;
-        case Slf.LogLevel.Fatal:
-          return logger.IsFatalEnabled;
-        case Slf.LogLevel.Info:
-          return logger.IsInfoEnabled;
-        case Slf.LogLevel.Warn:
-          return logger.IsWarnEnabled;
-        default:
-          return true;
-      }
+        /// <summary>
+        /// Overriden to delegate to the NLog IsXxxEnabled
+        /// properties.
+        /// </summary>
+        protected override bool IsLogLevelEnabled(Slf.LogLevel level)
+        {
+            switch (level)
+            {
+                case Slf.LogLevel.Debug:
+                    return logger.IsDebugEnabled;
+                case Slf.LogLevel.Error:
+                    return logger.IsErrorEnabled;
+                case Slf.LogLevel.Fatal:
+                    return logger.IsFatalEnabled;
+                case Slf.LogLevel.Info:
+                    return logger.IsInfoEnabled;
+                case Slf.LogLevel.Warn:
+                    return logger.IsWarnEnabled;
+                default:
+                    return true;
+            }
+        }
     }
-  }
 }
