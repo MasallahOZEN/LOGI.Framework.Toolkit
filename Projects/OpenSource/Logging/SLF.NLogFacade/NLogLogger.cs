@@ -63,7 +63,7 @@ namespace SLF.NLogFacade
         {
             if (item == null) throw new ArgumentNullException("item");
             
-            string message = FormatItem(item);
+            string message = item.Message;
             LogBuilder logBuilder = null;
 
             #region Initialize Log Builder
@@ -92,8 +92,14 @@ namespace SLF.NLogFacade
                 default:
                     logBuilder = logger.Info();
                     break;
-            } 
+            }
             #endregion
+
+            //logBuilder.LogEventInfo.FormattedMessage = FormatItem(item);
+
+            logBuilder.Property("Title", item.Title);
+            logBuilder.Property("Priority", item.Priority);
+            logBuilder.Property("EventId", item.EventId);
 
             if (item.Exception != null)
             {

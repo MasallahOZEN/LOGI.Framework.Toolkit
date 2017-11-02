@@ -361,7 +361,7 @@ namespace LOGI.Framework.Toolkit.OpenSource.AspectF
         /// <param name="onErrorhandler">Başarılı olduğunda catch içerisinde yapılacak iş (rethrow gibi)</param>
         /// <returns></returns>
         [DebuggerStepThrough]
-        public static LOGI.Framework.Toolkit.OpenSource.AspectF.AspectF HowLong(this LOGI.Framework.Toolkit.OpenSource.AspectF.AspectF aspect, Action<TimeSpan> onSuccessHandler, Action<TimeSpan,Exception> onFailHandler, Action<Exception> onErrorhandler)
+        public static LOGI.Framework.Toolkit.OpenSource.AspectF.AspectF HowLong(this LOGI.Framework.Toolkit.OpenSource.AspectF.AspectF aspect, Action<TimeSpan> onSuccessHandler, Action<TimeSpan,Exception> onFailHandler, Action<Exception> onErrorhandler=null)
         {
             
             var retValue= aspect.Combine(work =>
@@ -378,7 +378,9 @@ namespace LOGI.Framework.Toolkit.OpenSource.AspectF
                 {
                     exc = exception;
                     errorOccured = true;
-                    onErrorhandler(exception);
+
+                    onErrorhandler?.Invoke(exception);
+
                 }
                 finally
                 {
