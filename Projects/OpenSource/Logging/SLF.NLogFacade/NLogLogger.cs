@@ -62,58 +62,86 @@ namespace SLF.NLogFacade
         public override void Log(LogItem item)
         {
             if (item == null) throw new ArgumentNullException("item");
-            
-            string message = item.Message;
-            LogBuilder logBuilder = null;
 
-            #region Initialize Log Builder
+            string message = FormatItem(item);
+
+            var logEventInfo = new LogEventInfo()
+            {
+                LoggerName = item.LoggerName,
+                Message = item.Message,
+                TimeStamp = item.Timestamp.LocalDateTime
+            };
+
+            #region Switch LogLevel
             switch (item.LogLevel)
             {
                 case Slf.LogLevel.Fatal:
-                    logBuilder = logger.Fatal();
+                    logEventInfo.Level = NLog.LogLevel.Fatal;
+
                     break;
 
                 case Slf.LogLevel.Error:
-                    logBuilder = logger.Error();
+                    logEventInfo.Level = NLog.LogLevel.Error;
+
                     break;
 
                 case Slf.LogLevel.Warn:
-                    logBuilder = logger.Warn();
+                    logEventInfo.Level = NLog.LogLevel.Warn;
+
                     break;
 
                 case Slf.LogLevel.Info:
-                    logBuilder = logger.Info();
+                    logEventInfo.Level = NLog.LogLevel.Info;
+
                     break;
 
                 case Slf.LogLevel.Debug:
-                    logBuilder = logger.Debug();
+                    logEventInfo.Level = NLog.LogLevel.Debug;
+
+                    break;
+
+                case Slf.LogLevel.Trace:
+                    logEventInfo.Level = NLog.LogLevel.Trace;
+
                     break;
 
                 default:
-                    logBuilder = logger.Info();
+                    logEventInfo.Level = NLog.LogLevel.Info;
+
                     break;
+
             }
             #endregion
 
-            //logBuilder.LogEventInfo.FormattedMessage = FormatItem(item);
-
-            logBuilder.Property("Title", item.Title);
-            logBuilder.Property("Priority", item.Priority);
-            logBuilder.Property("EventId", item.EventId);
-
-            if (item.Exception != null)
+            if (item.LogItemProperties != null && item.LogItemProperties.Count > 0)
             {
-                logBuilder = logBuilder.Exception(item.Exception);
-            }
-            if (item.ExtendedProperties?.Count>0)
-            {
-                foreach (var prpItem in item.ExtendedProperties)
+                foreach (var logItem in item.LogItemProperties)
                 {
-                    logBuilder.Property(prpItem.Key, prpItem.Value);
+                    if (logEventInfo.Properties.ContainsKey(logItem.Key) == false)
+                    {
+                        logEventInfo.Properties.Add(logItem.Key, logItem.Value);
+                    }
                 }
             }
 
-            logBuilder.Message(message).Write();
+            if (this.Context != null && this.Context.Count > 0)
+            {
+                foreach (var logItem in this.Context)
+                {
+                    if (logEventInfo.Properties.ContainsKey(logItem.Key) == false)
+                    {
+                        logEventInfo.Properties.Add(logItem.Key, logItem.Value);
+                    }
+                }
+
+            }
+
+            if (item.Exception != null)
+            {
+                logEventInfo.Exception = item.Exception;
+            }
+
+            logger.Log(logEventInfo);
         }
 
         /// <summary>

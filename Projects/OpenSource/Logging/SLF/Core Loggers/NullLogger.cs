@@ -21,6 +21,7 @@
 
 
 using System;
+using System.Collections.Generic;
 
 namespace Slf
 {
@@ -70,13 +71,15 @@ namespace Slf
       get { return LoggerService.DefaultLoggerName; }
     }
 
+        public Dictionary<string, object> Context => new Dictionary<string, object>();
 
-    /// <summary>
-    /// Logs an arbitrary object with the <see cref="LogLevel.Debug"/> level. 
-    /// </summary>
-    /// <param name="obj">The message object to log, which will be converted
-    /// into a string during logging.</param>
-    public void Debug(object obj)
+
+        /// <summary>
+        /// Logs an arbitrary object with the <see cref="LogLevel.Debug"/> level. 
+        /// </summary>
+        /// <param name="obj">The message object to log, which will be converted
+        /// into a string during logging.</param>
+        public void Debug(object obj)
     {
     }
 

@@ -25,97 +25,97 @@ using Slf.Formatters;
 
 namespace Slf
 {
-  /// <summary>
-  /// Base class that extends <see cref="LoggerBase"/> with a custom
-  /// <see cref="ILogItemFormatter"/> by implementing the
-  /// <see cref="IFormattableLogger"/> interface.<br/>
-  /// Derive from this base class if you want to use simple
-  /// string conversion for logged <see cref="LogItem"/> instances.
-  /// </summary>
-  public abstract class FormattableLoggerBase : LoggerBase, IFormattableLogger
-  {
-    private ILogItemFormatter formatter;
-
     /// <summary>
-    /// Gets or sets a given formatter which is used to produce
-    /// the output of the logger.
+    /// Base class that extends <see cref="LoggerBase"/> with a custom
+    /// <see cref="ILogItemFormatter"/> by implementing the
+    /// <see cref="IFormattableLogger"/> interface.<br/>
+    /// Derive from this base class if you want to use simple
+    /// string conversion for logged <see cref="LogItem"/> instances.
     /// </summary>
-    /// <exception cref="ArgumentNullException">If <paramref name="value"/>
-    /// is a null reference.</exception>
-    public ILogItemFormatter Formatter
+    public abstract class FormattableLoggerBase : LoggerBase, IFormattableLogger
     {
-      get { return formatter; }
-      set
-      {
-        Ensure.ArgumentNotNull(value, "value");
-        formatter = value;
-      }
+        private ILogItemFormatter formatter;
+
+        /// <summary>
+        /// Gets or sets a given formatter which is used to produce
+        /// the output of the logger.
+        /// </summary>
+        /// <exception cref="ArgumentNullException">If <paramref name="value"/>
+        /// is a null reference.</exception>
+        public ILogItemFormatter Formatter
+        {
+            get { return formatter; }
+            set
+            {
+                Ensure.ArgumentNotNull(value, "value");
+                formatter = value;
+            }
+        }
+
+
+        /// <summary>
+        /// Creates a named logger, and uses the default <see cref="SimpleLogItemFormatter"/>
+        /// to format logged <see cref="LogItem"/> instances.
+        /// </summary>
+        /// <param name="name">The logger name.</param>
+        protected FormattableLoggerBase(string name)
+          : this(name, SimpleLogItemFormatter.Instance)
+        {
+        }
+
+        /// <summary>
+        /// Creates the logger, and uses the default <see cref="SimpleLogItemFormatter"/>
+        /// to format logged <see cref="LogItem"/> instances.
+        /// </summary>
+        /// <param name="name">The logger name.</param>
+        protected FormattableLoggerBase()
+          : this(SimpleLogItemFormatter.Instance)
+        {
+        }
+
+        /// <summary>
+        /// Creates the logger with a given formatter.
+        /// </summary>
+        /// <param name="formatter">The formatter to be used in order to
+        /// create string representations of logged <see cref="LogItem"/>
+        /// instances.</param>
+        /// <exception cref="ArgumentNullException">If <paramref name="formatter"/>
+        /// is a null reference.</exception>
+        protected FormattableLoggerBase(ILogItemFormatter formatter)
+          : base()
+        {
+            Ensure.ArgumentNotNull(formatter, "formatter");
+            Formatter = formatter;
+        }
+
+        /// <summary>
+        /// Creates a named logger with a given formatter.
+        /// </summary>
+        /// <param name="name">The logger name.</param>
+        /// <param name="formatter">The formatter to be used in order to
+        /// create string representations of logged <see cref="LogItem"/>
+        /// instances.</param>
+        /// <exception cref="ArgumentNullException">If <paramref name="formatter"/>
+        /// is a null reference.</exception>
+        protected FormattableLoggerBase(string name, ILogItemFormatter formatter)
+          : base(name)
+        {
+            Ensure.ArgumentNotNull(formatter, "formatter");
+            Formatter = formatter;
+        }
+
+
+        /// <summary>
+        /// Simple helper method which returns the formatted string
+        /// representation of the submitted <see cref="LogItem"/> by
+        /// invoking the <see cref="ILogItemFormatter.FormatItem"/>
+        /// method of the assigned <see cref="Formatter"/>.
+        /// </summary>
+        /// <param name="item">The item to be processed.</param>
+        /// <returns>Formatted logging data.</returns>
+        protected string FormatItem(LogItem item)
+        {
+            return Formatter.FormatItem(item);
+        }
     }
-
-
-    /// <summary>
-    /// Creates a named logger, and uses the default <see cref="SimpleLogItemFormatter"/>
-    /// to format logged <see cref="LogItem"/> instances.
-    /// </summary>
-    /// <param name="name">The logger name.</param>
-    protected FormattableLoggerBase(string name)
-      : this(name, SimpleLogItemFormatter.Instance)
-    {
-    }
-
-    /// <summary>
-    /// Creates the logger, and uses the default <see cref="SimpleLogItemFormatter"/>
-    /// to format logged <see cref="LogItem"/> instances.
-    /// </summary>
-    /// <param name="name">The logger name.</param>
-    protected FormattableLoggerBase()
-      : this(SimpleLogItemFormatter.Instance)
-    {
-    }
-
-    /// <summary>
-    /// Creates the logger with a given formatter.
-    /// </summary>
-    /// <param name="formatter">The formatter to be used in order to
-    /// create string representations of logged <see cref="LogItem"/>
-    /// instances.</param>
-    /// <exception cref="ArgumentNullException">If <paramref name="formatter"/>
-    /// is a null reference.</exception>
-    protected FormattableLoggerBase(ILogItemFormatter formatter)
-      : base()
-    {
-      Ensure.ArgumentNotNull(formatter, "formatter");
-      Formatter = formatter;
-    }
-
-    /// <summary>
-    /// Creates a named logger with a given formatter.
-    /// </summary>
-    /// <param name="name">The logger name.</param>
-    /// <param name="formatter">The formatter to be used in order to
-    /// create string representations of logged <see cref="LogItem"/>
-    /// instances.</param>
-    /// <exception cref="ArgumentNullException">If <paramref name="formatter"/>
-    /// is a null reference.</exception>
-    protected FormattableLoggerBase(string name, ILogItemFormatter formatter)
-      : base(name)
-    {
-      Ensure.ArgumentNotNull(formatter, "formatter");
-      Formatter = formatter;
-    }
-
-
-    /// <summary>
-    /// Simple helper method which returns the formatted string
-    /// representation of the submitted <see cref="LogItem"/> by
-    /// invoking the <see cref="ILogItemFormatter.FormatItem"/>
-    /// method of the assigned <see cref="Formatter"/>.
-    /// </summary>
-    /// <param name="item">The item to be processed.</param>
-    /// <returns>Formatted logging data.</returns>
-    protected string FormatItem(LogItem item)
-    {
-      return Formatter.FormatItem(item);
-    }
-  }
 }
